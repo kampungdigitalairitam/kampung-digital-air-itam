@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
 </head>
-<body>
+<body class="bg-gray-900">
 
     <!--navbar-->
     <header class="bg-transparent absolute w-full z-10">
@@ -82,10 +82,7 @@
         </p>
 
         <div class="mt-8 flex flex-wrap justify-center gap-4">
-          <a
-            class="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-            href="#"
-          >
+          <a class="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto" href="#">
             Get Started
           </a>
         </div>
@@ -105,6 +102,84 @@
         </div>
     </div>
 </section>
+
+<section class="bg-gray-900 py-12">
+    <div class="container mx-auto px-6 lg:px-20">
+        <!-- Judul Section -->
+        <div class="text-center mb-20">
+            <h2 class="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">Ekosistem Support</h2>
+
+        </div>
+
+        <!-- Grid Logo Komunitas -->
+        <div class="grid grid-cols-5 gap-8 items-center">
+            <!-- Baris Pertama: 5 Logo -->
+            <div class="flex justify-center">
+                <img src="{{ asset('images/kdai-fix.png') }}" alt="Logo Komunitas 1" class="h-24 w-auto object-contain">
+            </div>
+            <div class="flex justify-center">
+                <img src="{{ asset('images/kdai-fix.png') }}" alt="Logo Komunitas 2" class="h-24 w-auto object-contain">
+            </div>
+            <div class="flex justify-center">
+                <img src="{{ asset('images/kdai-fix.png') }}" alt="Logo Komunitas 3" class="h-24 w-auto object-contain">
+            </div>
+            <div class="flex justify-center">
+                <img src="{{ asset('images/kdai-fix.png') }}" alt="Logo Komunitas 4" class="h-24 w-auto object-contain">
+            </div>
+            <div class="flex justify-center">
+                <img src="{{ asset('images/kdai-fix.png') }}" alt="Logo Komunitas 5" class="h-24 w-auto object-contain">
+            </div>
+        </div>
+
+        <!-- Baris Kedua: 4 Logo di Tengah -->
+        <div class="grid grid-cols-4 gap-8 items-center justify-center mt-10 max-w-4xl mx-auto">
+            <div class="flex justify-center">
+                <img src="{{ asset('images/kdai-fix.png') }}" alt="Logo Komunitas 6" class="h-24 w-auto object-contain">
+            </div>
+            <div class="flex justify-center">
+                <img src="{{ asset('images/kdai-fix.png') }}" alt="Logo Komunitas 7" class="h-24 w-auto object-contain">
+            </div>
+            <div class="flex justify-center">
+                <img src="{{ asset('images/kdai-fix.png') }}" alt="Logo Komunitas 8" class="h-24 w-auto object-contain">
+            </div>
+            <div class="flex justify-center">
+                <img src="{{ asset('images/kdai-fix.png') }}" alt="Logo Komunitas 9" class="h-24 w-auto object-contain">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+ <!-- Footer Section -->
+ <footer class="bg-sky-900 text-center py-4 text-gray-400">
+    <p>&copy;DINAS PENGELOLAAN SUMBER DAYA AIR PROVINSI SUMATERA SELATAN<br>#PSDADIGITAL #PSDATANGGAP</p>
+    <div class="flex justify-center space-x-4 mt-4">
+        <a href="https://www.instagram.com/dinaspsdaprov.sumsel/profilecard/?igsh=MWlhZDhpcGJxZWp4eQ==" class="hover:text-white">
+            <i data-feather="instagram"></i>
+        </a>
+        <a href="https://youtu.be/NzO2XbEp968?si=XZfGk-SvbCi0zMQ_" class="hover:text-white">
+            <i data-feather="youtube"></i>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100076006817436&mibextid=ZbWKwL" class="hover:text-white">
+            <i data-feather="facebook"></i>
+        </a>
+        <a href="mailto:dinaspengelolaansdasumsel@gmail.com" class="hover:text-white">
+            <i data-feather="mail"></i>
+        </a>
+        <a href="tel:+62711352362" class="hover:text-white">
+            <i data-feather="phone"></i>
+        </a>
+    </div>
+</footer>
+
+<!-- Feather Icons Script -->
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<script>
+    feather.replace();
+</script>
+
+
+
 
       <!--Main Content end-->
 </body>
