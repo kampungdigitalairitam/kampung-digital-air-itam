@@ -71,7 +71,8 @@
                             <h2 class="text-4xl font-extrabold text-white mb-6">Gabung Media Partner</h2>
                             <p class="text-lg text-gray-300 mb-8">Silakan isi form di bawah ini untuk bergabung.</p>
 
-                            <form action="#" method="POST" class="space-y-6">
+                            <form action="{{ route('admin.submit') }}" method="post" class="space-y-6">
+                                @csrf
                                 <!-- Nama Lengkap -->
                                 <div>
                                     <label for="name" class="block text-left text-sm font-medium text-white">Nama</label>
@@ -80,20 +81,20 @@
 
                                 <!-- Jabatan -->
                                 <div>
-                                    <label for="email" class="block text-left text-sm font-medium text-white">Jabatan</label>
-                                    <input type="email" id="email" name="email" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <label for="jabatan" class="block text-left text-sm font-medium text-white">Jabatan</label>
+                                    <input type="text" id="jabatan" name="jabatan" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                 </div>
 
                                 <!-- Asal Komunitas -->
                                 <div>
-                                    <label for="phone" class="block text-left text-sm font-medium text-white">Asal Komunitas/Instansi/Media</label>
-                                    <input type="tel" id="phone" name="phone" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <label for="asalKomunitas" class="block text-left text-sm font-medium text-white">Asal Komunitas/Instansi/Media</label>
+                                    <input type="text" id="asalKomunitas" name="asalKomunitas" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                 </div>
 
                                 <!-- Nomor Telepon -->
                                 <div>
                                     <label for="phone" class="block text-left text-sm font-medium text-white">No Hp</label>
-                                    <input type="tel" id="phone" name="phone" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <input type="text" id="phone" name="phone" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                 </div>
 
                                 <!-- Email -->
@@ -104,8 +105,8 @@
 
                                 <!-- Tujuan Pendaftaran -->
                                 <div>
-                                    <label for="goal" class="block text-left text-sm font-medium text-white">Tujuan Pendaftaran</label>
-                                    <input type="text" id="goal" name="goal" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <label for="tujuan" class="block text-left text-sm font-medium text-white">Tujuan Pendaftaran</label>
+                                    <input type="text" id="tujuan" name="tujuan" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                 </div>
 
                                 <!-- Tombol Kirim -->
@@ -121,7 +122,7 @@
                 </section>
 
 
-                
+
 
  <!-- Footer Section -->
  <footer class="bg-sky-900 text-center py-4 text-gray-400">

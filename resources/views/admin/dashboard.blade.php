@@ -10,25 +10,7 @@
 <body class="bg-gray-900">
 
   <!-- Navbar -->
-  <header class="bg-transparent absolute w-full z-50">
-    <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
 
-        <div class="hidden md:block">
-          <nav aria-label="Global">
-
-          </nav>
-        </div>
-        <div class="block md:hidden">
-          <button class="rounded bg-gray-100 p-2 text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </header>
   <!-- Navbar End -->
 
   <!-- Main Content -->
@@ -38,9 +20,14 @@
     <div class="flex h-screen w-16 flex-col justify-between border-e bg-white">
         <div>
           <div class="inline-flex size-16 items-center justify-center">
-            <span class="grid size-10 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600">
-              L
-            </span>
+            <div class="inline-flex items-center justify-center">
+                <img
+                  src="{{ asset('images/logo_komunitas/kdai-fix.png') }}"
+                  alt="Logo"
+                  class="w-10 h-10 rounded-lg"
+                />
+              </div>
+
           </div>
 
           <div class="border-t border-gray-100">
@@ -81,7 +68,7 @@
               <ul class="space-y-1 border-t border-gray-100 pt-4">
                 <li>
                   <a
-                    href="#"
+                    href="{{ route('admin.mediapartner') }}"
                     class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                   >
                     <svg
@@ -196,7 +183,8 @@
         </div>
 
         <div class="sticky inset-x-0 bottom-0 border-t border-gray-100 bg-white p-2">
-          <form action="">
+          <form action="{{ route('admin.logout') }}" method="post">
+            @csrf
             <button
               type="submit"
               class="group relative flex w-full justify-center rounded-lg px-2 py-1.5 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
