@@ -55,70 +55,73 @@
       <!--navbar end-->
 
       <!--Main Content-->
-<section class="bg-digital-pattern text-white pt-32"> <!-- Menambahkan padding-top -->
-    <!-- Pola Animasi Meteor -->
-    <div class="absolute inset-0 pointer-events-none">
-        <!-- Banyak meteor -->
-        @for ($i = 0; $i < 50; $i++)
-            <div class="meteor" style="top: {{ rand(0, 100) }}%; left: {{ rand(0, 100) }}%; animation-delay: {{ rand(0, 2000) / 1000 }}s;"></div>
-        @endfor
-    </div>
+                <section class="bg-digital-pattern text-white pt-32"> <!-- Menambahkan padding-top -->
+                    <!-- Pola Animasi Meteor -->
+                    <div class="absolute inset-0 pointer-events-none">
+                        <!-- Banyak meteor -->
+                        @for ($i = 0; $i < 50; $i++)
+                            <div class="meteor" style="top: {{ rand(0, 100) }}%; left: {{ rand(0, 100) }}%; animation-delay: {{ rand(0, 2000) / 1000 }}s;"></div>
+                        @endfor
+                    </div>
 
-    <!-- Konten Utama -->
-    <!-- Form Pendaftaran -->
-    <div class="relative z-10 mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center mb-20">
-        <div class="mx-auto max-w-3xl text-center">
-            <h2 class="text-4xl font-extrabold text-white mb-6">Gabung Media Partner</h2>
-            <p class="text-lg text-gray-300 mb-8">Silakan isi form di bawah ini untuk bergabung.</p>
+                    <!-- Konten Utama -->
+                    <!-- Form Pendaftaran -->
+                    <div class="relative z-10 mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center mb-20">
+                        <div class="mx-auto max-w-3xl text-center">
+                            <h2 class="text-4xl font-extrabold text-white mb-6">Gabung Media Partner</h2>
+                            <p class="text-lg text-gray-300 mb-8">Silakan isi form di bawah ini untuk bergabung.</p>
 
-            <form action="#" method="POST" class="space-y-6">
-                <!-- Nama Lengkap -->
-                <div>
-                    <label for="name" class="block text-left text-sm font-medium text-white">Nama</label>
-                    <input type="text" id="name" name="name" required class=" text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
+                            <form action="#" method="POST" class="space-y-6">
+                                <!-- Nama Lengkap -->
+                                <div>
+                                    <label for="name" class="block text-left text-sm font-medium text-white">Nama</label>
+                                    <input type="text" id="name" name="name" required class=" text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
 
-                <!-- Jabatan -->
-                <div>
-                    <label for="email" class="block text-left text-sm font-medium text-white">Jabatan</label>
-                    <input type="email" id="email" name="email" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
+                                <!-- Jabatan -->
+                                <div>
+                                    <label for="email" class="block text-left text-sm font-medium text-white">Jabatan</label>
+                                    <input type="email" id="email" name="email" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
 
-                <!-- Asal Komunitas -->
-                <div>
-                    <label for="phone" class="block text-left text-sm font-medium text-white">Asal Komunitas/Instansi/Media</label>
-                    <input type="tel" id="phone" name="phone" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
+                                <!-- Asal Komunitas -->
+                                <div>
+                                    <label for="phone" class="block text-left text-sm font-medium text-white">Asal Komunitas/Instansi/Media</label>
+                                    <input type="tel" id="phone" name="phone" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
 
-                <!-- Nomor Telepon -->
-                <div>
-                    <label for="phone" class="block text-left text-sm font-medium text-white">No Hp</label>
-                    <input type="tel" id="phone" name="phone" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
+                                <!-- Nomor Telepon -->
+                                <div>
+                                    <label for="phone" class="block text-left text-sm font-medium text-white">No Hp</label>
+                                    <input type="tel" id="phone" name="phone" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
 
-                <!-- Email -->
-                <div>
-                    <label for="email" class="block text-left text-sm font-medium text-white">Email</label>
-                    <input type="email" id="email" name="email" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
+                                <!-- Email -->
+                                <div>
+                                    <label for="email" class="block text-left text-sm font-medium text-white">Email</label>
+                                    <input type="email" id="email" name="email" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
 
-                <!-- Tujuan Pendaftaran -->
-                <div>
-                    <label for="goal" class="block text-left text-sm font-medium text-white">Tujuan Pendaftaran</label>
-                    <input type="text" id="goal" name="goal" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
+                                <!-- Tujuan Pendaftaran -->
+                                <div>
+                                    <label for="goal" class="block text-left text-sm font-medium text-white">Tujuan Pendaftaran</label>
+                                    <input type="text" id="goal" name="goal" required class="text-black mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
 
-                <!-- Tombol Kirim -->
-                <div>
-                    <button type="submit" class="w-full py-3 px-6 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        Gabung Sekarang
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
+                                <!-- Tombol Kirim -->
+                                <div>
+                                    <button type="submit" class="w-full py-3 px-6 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                        Gabung Sekarang
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
-</section>
+                </section>
+
+
+                
 
  <!-- Footer Section -->
  <footer class="bg-sky-900 text-center py-4 text-gray-400">

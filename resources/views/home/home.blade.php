@@ -43,7 +43,7 @@
 
                 <div class="flex items-center gap-4">
                     <div class="sm:flex sm:gap-4">
-                        <a class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-teal-500 focus:outline-none focus:ring active:bg-teal-700" href="#">
+                        <a class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-teal-500 focus:outline-none focus:ring active:bg-teal-700" href="{{ route('admin.login') }}">
                             Login
                         </a>
                     </div>
@@ -116,6 +116,34 @@
         </div>
     </div>
 </section>
+
+<!--Visi Dan Misi-->
+
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-900 p-6 my-auto">
+    <div class="text-center">
+        <h1 class="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">VISI & MISI</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            <!-- Bagian Visi -->
+            <div class="bg-blue-950 shadow-md rounded-lg p-6">
+                <h2 class="text-2xl font-semibold text-amber-500 mb-4">Visi</h2>
+                <p class="text-amber-600">
+                    Mengembangkan Dan Memberdayakan Seluruh Talenta Digital Kabupaten PALI untuk Mengakselerasi Percepatan Transformasi Digital Menuju "Air Itam Ready For Sillicon PALI".
+                </p>
+            </div>
+            <!-- Bagian Misi -->
+            <div class="bg-blue-950 shadow-md rounded-lg p-6">
+                <h2 class="text-2xl font-semibold text-amber-500 mb-4">Misi</h2>
+                <ul class="list-disc pl-5 text-amber-600">
+                    <li>Mengembangkan soft skill & hard skill talenta digital kabupaten PALI.</li>
+                    <li>Menjadi pusat pembelajaran Teknologi dan Edukasi untuk seluruh kalangan.</li>
+                    <li>Bergandengan tangan dengan seluruh komunitas Kabupaten PALI untuk berkembang bersama dibidang Pendidikan, Kebudayaan, Pariwisata dan Ekonomi Kreatif.</li>
+                    <li>Menciptakan Ekosistem digital dengan Sumber Daya yang unggul, kreatif, inovatif dan kolaboratif.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <section class="bg-gray-900 py-12">
     <div class="container mx-auto px-6 lg:px-20">
