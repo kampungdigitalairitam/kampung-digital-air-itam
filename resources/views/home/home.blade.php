@@ -26,7 +26,7 @@
                                 <a class="text-white transition hover:text-gray-300" href="#"> Kegiatan </a>
                             </li>
                             <li>
-                                <a class="text-white transition hover:text-gray-300" href="#"> Program </a>
+                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.program') }}"> Program </a>
                             </li>
                             <li>
                                 <a class="text-white transition hover:text-gray-300" href="#"> Tentang Kami </a>

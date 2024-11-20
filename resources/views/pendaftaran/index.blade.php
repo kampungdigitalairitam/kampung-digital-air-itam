@@ -6,6 +6,7 @@
   @vite('resources/css/app.css')
   <title>Media Partner</title>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <body class="bg-gray-900">
 
@@ -71,7 +72,7 @@
                             <h2 class="text-4xl font-extrabold text-white mb-6">Gabung Media Partner</h2>
                             <p class="text-lg text-gray-300 mb-8">Silakan isi form di bawah ini untuk bergabung.</p>
 
-                            <form action="{{ route('admin.submit') }}" method="post" class="space-y-6">
+                            <form id="mediapartnerForm" action="{{ route('admin.submit') }}" method="post" class="space-y-6">
                                 @csrf
                                 <!-- Nama Lengkap -->
                                 <div>
@@ -150,6 +151,49 @@
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 <script>
     feather.replace();
+</script>
+<script>
+    document.getElementById('mediapartnerForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Mencegah form langsung submit
+
+        const form = this;
+
+        // Lakukan submit data ke server
+        fetch(form.action, {
+            method: form.method,
+            body: new FormData(form),
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: 'Data Anda telah berhasil dikirim.',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    form.submit(); // Submit form setelah alert
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal!',
+                    text: 'Terjadi kesalahan saat mengirim data. Silakan coba lagi.',
+                    confirmButtonText: 'OK'
+                });
+            }
+        })
+        .catch(() => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal!',
+                text: 'Terjadi kesalahan koneksi. Silakan coba lagi.',
+                confirmButtonText: 'OK'
+            });
+        });
+    });
 </script>
 
 

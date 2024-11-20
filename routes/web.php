@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\ProgramContentController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -12,8 +15,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [HomeController::class, 'home'])->name('home.home');
-Route::get('/pendaftaran', [DaftarController::class, 'index'])->name('pendaftaran.index');
+Route::get('/home/program', [HomeController::class, 'program'])->name('home.program');
 
+Route::get('/pendaftaran', [DaftarController::class, 'index'])->name('pendaftaran.index');
 
 //login
 
@@ -31,4 +35,14 @@ Route::middleware(AdminMiddleware::class)->group(function () {
 });
 
 Route::post('/admin/submit', [PartnerController::class, 'submit'])->name('admin.submit');
+
+Route::get('/admin/tambahprogram', [AdminController::class, 'tambahprogram'])->name('tambahprogram');
+
+
+Route::post('/admin/tambahprogram', [ProgramController::class, 'store']);
+Route::post('/admin/tambahprogram/{program_id}/contents', [ProgramContentController::class, 'store']);
+
+
+Route::get('/home/program', [ProgramController::class, 'program'])->name('home.program');
+Route::get('/home/showprogram/{id}', [ProgramController::class, 'show'])->name('home.showprogram');
 

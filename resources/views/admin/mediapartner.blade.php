@@ -59,7 +59,7 @@
       </div>
       <div class="flex">
         <!-- Sidebar -->
-        <div class="flex h-screen w-16 flex-col justify-between border-e bg-white">
+        <div class="flex h-screen w-16 flex-col justify-between border-e bg-white fixed">
             <div>
                 <div class="inline-flex size-16 items-center justify-center">
                   <div class="inline-flex items-center justify-center">
@@ -131,7 +131,7 @@
                           <span
                             class="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible"
                           >
-                            Teams
+                            Media Partner
                           </span>
                         </a>
                       </li>
@@ -259,54 +259,53 @@
         </div>
 
         <!-- Main Content -->
-        <div class="flex-1 p-4">
-          <!-- Tabel -->
-          <div class="overflow-x-auto rounded-lg border border-gray-200 text-xs">
-            <table class="min-w-full divide-y-2 divide-gray-200 bg-white">
-              <thead class="bg-gray-100">
-                <tr>
-                  <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">NO</th>
-                  <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">NAMA</th>
-                  <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">JABATAN</th>
-                  <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">ASAL KOMUNITAS</th>
-                  <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">CONTACT</th>
-                  <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">EMAIL</th>
-                  <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">TUJUAN</th>
-                  <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">AKSI</th>
-                </tr>
-              </thead>
 
-              <tbody class="divide-y divide-gray-200">
-                @foreach ($mediapartner as $no=>$data)
-                <tr>
-                  <td class="whitespace-nowrap px-2 py-1 text-gray-700">{{ $no+1 }}</td>
-                  <td class="break-words max-w-xs px-2 py-1 font-medium text-gray-900">{{ $data->name }}</td>
-                  <td class="break-words max-w-xs px-2 py-1 text-gray-700">
-                    {{ $data->jabatan }}
-                  </td>
-                  <td class="break-words max-w-xs px-2 py-1 text-gray-700">{{ $data->asalkomunitas }}</td>
-                  <td class="break-words max-w-xs px-2 py-1 text-gray-700">{{ $data->telepon }}</td>
-                  <td class="break-words max-w-xs px-2 py-1 text-gray-700">{{ $data->email }}</td>
-                  <td class="break-words max-w-xs px-2 py-1 text-gray-700">
-                    {{ $data->tujuan }}
-                  </td>
-                  <td class="whitespace-nowrap px-2 py-1 text-center">
-                    <form action="{{ route('admin.delete', $data->id) }}" method="post">
-                        @csrf
-                        <button type="submit" class="px-2 py-1 text-white bg-red-500 rounded hover:bg-red-600">Hapus</button>
-                    </form>
-
-                  </td>
-                </tr>
-                @endforeach
+        <div class="flex justify-center items-center min-h-screen">
+            <div class="w-full px-6">
 
 
-              </tbody>
-            </table>
-          </div>
+                <!-- Tabel -->
+                <div class="overflow-x-auto rounded-lg border border-gray-200 text-xs" style="margin-left: 120px;">
+                    <h1 class="text-2xl font-bold text-gray-900 mt-5 text-center">Media Partner</h1>
+                    <table class="min-w-full table-auto divide-y-2 divide-gray-200 bg-white">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">NO</th>
+                                <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">NAMA</th>
+                                <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">JABATAN</th>
+                                <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">ASAL KOMUNITAS</th>
+                                <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">CONTACT</th>
+                                <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">EMAIL</th>
+                                <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">TUJUAN</th>
+                                <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">AKSI</th>
+                            </tr>
+                        </thead>
 
-
+                        <tbody class="divide-y divide-gray-200">
+                            @foreach ($mediapartner as $no=>$data)
+                            <tr>
+                                <td class="whitespace-nowrap px-2 py-1 text-gray-700">{{ $no+1 }}</td>
+                                <td class="break-words max-w-xs px-2 py-1 font-medium text-gray-900">{{ $data->name }}</td>
+                                <td class="break-words max-w-xs px-2 py-1 text-gray-700">{{ $data->jabatan }}</td>
+                                <td class="break-words max-w-xs px-2 py-1 text-gray-700">{{ $data->asalkomunitas }}</td>
+                                <td class="break-words max-w-xs px-2 py-1 text-gray-700">{{ $data->telepon }}</td>
+                                <td class="break-words max-w-xs px-2 py-1 text-gray-700">{{ $data->email }}</td>
+                                <td class="break-words max-w-xs px-2 py-1 text-gray-700">{{ $data->tujuan }}</td>
+                                <td class="whitespace-nowrap px-2 py-1 text-center">
+                                    <form action="{{ route('admin.delete', $data->id) }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="px-2 py-1 text-white bg-red-500 rounded hover:bg-red-600">Hapus</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
+
+
       </div>
 
     <!--content media partner-->
