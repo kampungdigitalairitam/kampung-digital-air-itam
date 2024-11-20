@@ -15,13 +15,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [HomeController::class, 'home'])->name('home.home');
-Route::get('/home/program', [HomeController::class, 'program'])->name('home.program');
 
-Route::get('/pendaftaran', [DaftarController::class, 'index'])->name('pendaftaran.index');
+
+Route::get('/pendaftaranpartner', [DaftarController::class, 'index'])->name('pendaftaranpartner.index');
 
 //login
-
-
 Route::get('/admin', [AuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin', [AuthController::class, 'login'])->name('admin.authenticate');
 Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
@@ -32,17 +30,23 @@ Route::middleware(AdminMiddleware::class)->group(function () {
     })->name('home.home');
     Route::get('/admin/mediapartner', [PartnerController::class, 'index'])->name('admin.mediapartner');
     Route::post('/admin/delete{id}', [PartnerController::class, 'delete'])->name('admin.delete');
+
+    //tambahkegiatan
+    Route::get('/admin/tambahkegiatan', [AdminController::class, 'tambahkegiatan'])->name('tambahkegiatan');
+    Route::post('/admin/tambahkegiatan', [ProgramController::class, 'store']);
+    Route::post('/admin/tambahkegiatan/{program_id}/contents', [ProgramContentController::class, 'store']);
+
+    //kelolakegiatan
+    Route::get('/admin/kelolakegiatan', [AdminController::class, 'kelolakegiatan'])->name('admin.kelolakegiatan');
+    Route::get('/admin/kelolakegiatan', [AdminController::class, 'program'])->name('admin.kelolakegiatan');
+    Route::delete('/admin/kelolakegiatan/{program}', [AdminController::class, 'destroy'])->name('admin.kelolakegiatan.destroy');
+
 });
 
+//bagian submit media partner user
 Route::post('/admin/submit', [PartnerController::class, 'submit'])->name('admin.submit');
 
-Route::get('/admin/tambahprogram', [AdminController::class, 'tambahprogram'])->name('tambahprogram');
-
-
-Route::post('/admin/tambahprogram', [ProgramController::class, 'store']);
-Route::post('/admin/tambahprogram/{program_id}/contents', [ProgramContentController::class, 'store']);
-
-
-Route::get('/home/program', [ProgramController::class, 'program'])->name('home.program');
-Route::get('/home/showprogram/{id}', [ProgramController::class, 'show'])->name('home.showprogram');
+//bagian view kegiatan user
+Route::get('/home/kegiatan', [ProgramController::class, 'program'])->name('home.kegiatan');
+Route::get('/home/showkegiatan/{id}', [ProgramController::class, 'show'])->name('home.showkegiatan');
 

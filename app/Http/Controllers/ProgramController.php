@@ -17,29 +17,29 @@ class ProgramController extends Controller
         ]);
 
         $thumbnailPath = $request->file('thumbnail')->store('thumbnails', 'public');
-
         $program = Program::create([
             'title' => $validated['title'],
             'thumbnail' => $thumbnailPath,
             'description' => $validated['description'],
         ]);
 
-        return redirect('/admin/tambahprogram');
+        return redirect('/admin/tambahkegiatan');
     }
 
 
     public function program()
 {
     $programs = Program::all(); // Mengambil semua data dari tabel programs
-    return view('home.program', compact('programs'));
+    return view('home.kegiatan', compact('programs'));
 }
 
 public function show($id)
 {
     $program = Program::findOrFail($id); // Ambil data program berdasarkan ID
-    $contents = ProgramContent::where('program_id', $id)->get(); // Ambil isi konten terkait program
-    return view('home.showprogram', compact('program', 'contents'));
+    $contents = ProgramContent::where('program_id', $id)->get(); // Ambil konten berdasarkan ID program
+    return view('home.showkegiatan', compact('program', 'contents'));
 }
+
 
 
 }

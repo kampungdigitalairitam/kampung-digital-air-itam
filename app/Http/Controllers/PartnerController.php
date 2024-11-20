@@ -22,13 +22,13 @@ class PartnerController extends Controller
         $mediapartner->tujuan = $request->tujuan;
         $mediapartner->save();
         // return redirect()->back()->with('success', 'Data Berhasil Ditambahkan');
-        return redirect()->route('pendaftaran.index');
+        return redirect()->route('pendaftaranpartner.index');
 
     }
 
     function delete($id){
         $mediapartner = Partner::find($id);
-        $mediapartner->delete();  
+        $mediapartner->delete();
         return redirect()->route('admin.mediapartner');
       }
 }

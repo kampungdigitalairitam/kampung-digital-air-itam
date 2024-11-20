@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>Admin - MediaPartner</title>
     <style>
          body {
@@ -12,27 +14,7 @@
             padding: 0;
 
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background-color: #ffffff;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            text-align: left;
-            padding: 12px;
-        }
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        tr:hover {
-            background-color: #ddd;
-        }
+
         .flex-1 {
   padding: 16px; /* Menambahkan jarak di area konten utama */
 }
@@ -49,6 +31,7 @@
   }
 }
 
+
     </style>
 </head>
 <body class="bg-slate-300">
@@ -56,7 +39,7 @@
 
 
 
-      </div>
+    </div>
       <div class="flex">
         <!-- Sidebar -->
         <div class="flex h-screen w-16 flex-col justify-between border-e bg-white fixed">
@@ -110,8 +93,8 @@
                     <ul class="space-y-1 border-t border-gray-100 pt-4 ">
                       <li>
                         <a
-                          href="#"
-                          class="group relative flex justify-center rounded px-2 py-1.5  text-blue-700 hover:bg-gray-50 bg-blue-50"
+                          href="{{ route('admin.mediapartner') }}"
+                          class="group relative flex justify-center rounded px-2 py-1.5   text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -139,7 +122,7 @@
                       <li>
                         <a
                           href="{{ route('tambahkegiatan') }}"
-                          class="group relative flex justify-center rounded px-2 py-1.5  text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                          class="group relative flex justify-center rounded px-2 py-1.5  text-blue-700 hover:bg-gray-50 bg-blue-50"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -159,10 +142,43 @@
                           <span
                             class="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible"
                           >
-                            Billing
+                            Tambah Kegiatan
                           </span>
                         </a>
                       </li>
+
+                      <div class="py-4">
+                        <a
+                          href="#"
+                          class="t group relative flex justify-center rounded  px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="size-5 opacity-75"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                            />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                            />
+                          </svg>
+
+                          <span
+                            class="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible"
+                          >
+                            General
+                          </span>
+                        </a>
+                      </div>
 
                       <li>
                         <a
@@ -260,51 +276,80 @@
 
         <!-- Main Content -->
 
-        <div class="flex justify-center items-center min-h-screen">
+        <div class="flex-1 ml-16 p-4  min-h-screen">
             <div class="w-full px-6">
+                <!-- Main Content -->
 
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 px-4" style=" margin-left: 120px;">
+                @foreach ($programs as $program)
+                <!-- Article Card -->
+                <article class="flex bg-white transition hover:shadow-xl">
+                    <!-- Date Section -->
+                    <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
+                        <time
+                            datetime="{{ $program->created_at->toDateString() }}"
+                            class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900"
+                        >
+                            <span>{{ $program->created_at->format('Y') }}</span>
+                            <span class="w-px flex-1 bg-gray-900/10"></span>
+                            <span>{{ $program->created_at->format('M d') }}</span>
+                        </time>
+                    </div>
 
-                <!-- Tabel -->
-                <div class="overflow-x-auto rounded-lg border border-gray-200 text-xs" style="margin-left: 120px;">
-                    <h1 class="text-2xl font-bold text-gray-900 mt-5 text-center">Media Partner</h1>
-                    <table class="min-w-full table-auto divide-y-2 divide-gray-200 bg-white">
-                        <thead class="bg-gray-100">
-                            <tr>
-                                <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">NO</th>
-                                <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">NAMA</th>
-                                <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">JABATAN</th>
-                                <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">ASAL KOMUNITAS</th>
-                                <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">CONTACT</th>
-                                <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">EMAIL</th>
-                                <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">TUJUAN</th>
-                                <th class="whitespace-nowrap px-2 py-1 font-medium text-gray-900">AKSI</th>
-                            </tr>
-                        </thead>
+                    <!-- Thumbnail Section -->
+                    <div class="hidden sm:block sm:basis-56">
+                        <img
+                            alt="Program Thumbnail"
+                            src="{{ asset('storage/' . $program->thumbnail) }}"
+                            class="aspect-square h-full w-full object-cover"
+                        />
+                    </div>
 
-                        <tbody class="divide-y divide-gray-200">
-                            @foreach ($mediapartner as $no=>$data)
-                            <tr>
-                                <td class="whitespace-nowrap px-2 py-1 text-gray-700">{{ $no+1 }}</td>
-                                <td class="break-words max-w-xs px-2 py-1 font-medium text-gray-900">{{ $data->name }}</td>
-                                <td class="break-words max-w-xs px-2 py-1 text-gray-700">{{ $data->jabatan }}</td>
-                                <td class="break-words max-w-xs px-2 py-1 text-gray-700">{{ $data->asalkomunitas }}</td>
-                                <td class="break-words max-w-xs px-2 py-1 text-gray-700">{{ $data->telepon }}</td>
-                                <td class="break-words max-w-xs px-2 py-1 text-gray-700">{{ $data->email }}</td>
-                                <td class="break-words max-w-xs px-2 py-1 text-gray-700">{{ $data->tujuan }}</td>
-                                <td class="whitespace-nowrap px-2 py-1 text-center">
-                                    <form action="{{ route('admin.delete', $data->id) }}" method="post">
-                                        @csrf
-                                        <button type="submit" class="px-2 py-1 text-white bg-red-500 rounded hover:bg-red-600">Hapus</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                    <!-- Content Section -->
+                    <div class="flex flex-1 flex-col justify-between">
+                        <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
+                            <a href="{{ route('home.showkegiatan', $program->id) }}">
+                                <h3 class="font-bold uppercase text-gray-900">
+                                    {{ $program->title }}
+                                </h3>
+                            </a>
+
+                            <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
+                                {{ $program->description }}
+                            </p>
+                        </div>
+
+            <!-- Button Section -->
+
+            <!-- Tambahkan SweetAlert2 CSS dan JS -->
+            <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+            <div class="sm:flex sm:items-end sm:justify-end">
+                <form
+                    id="deleteForm-{{ $program->id }}"
+                    action="{{ route('admin.kelolakegiatan.destroy', $program->id) }}"
+                    method="POST"
+                    class="block"
+                >
+                    @csrf
+                    @method('DELETE')
+                    <button
+                        type="button"
+                        onclick="confirmDelete({{ $program->id }})"
+                        class="bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400"
+                    >
+                        Hapus
+                    </button>
+                </form>
             </div>
-        </div>
 
+
+
+        </div>
+    </article>
+    @endforeach
+</div>
 
       </div>
 
@@ -323,6 +368,25 @@
       navMenu.classList.toggle('hidden');
     });
   </script>
+  <script>
+    function confirmDelete(id) {
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Program ini akan dihapus secara permanen!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Submit form jika user mengonfirmasi
+                document.getElementById(`deleteForm-${id}`).submit();
+            }
+        });
+    }
+</script>
 
 </body>
 </html>

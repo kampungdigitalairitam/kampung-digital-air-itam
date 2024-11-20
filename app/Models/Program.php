@@ -16,4 +16,14 @@ class Program extends Model
     {
         return $this->hasMany(ProgramContent::class);
     }
+
+    protected static function boot()
+{
+    parent::boot();
+
+    static::deleting(function ($program) {
+        $program->contents()->delete();
+    });
+}
+
 }

@@ -2,30 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Program;
 use App\Models\ProgramContent;
 use Illuminate\Http\Request;
 
 class ProgramContentController extends Controller
 {
     public function store(Request $request, $programId)
-    {
-        $validated = $request->validate([
-            'photos.*' => 'required|image',
-            'descriptions.*' => 'required|string',
-        ]);
+{
+    $request->validate([
+        'photos.*' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'descriptions.*' => 'required|string|max:255',
+    ]);
 
-        foreach ($request->file('photos') as $index => $photo) {
-            $photoPath = $photo->store('program_contents', 'public');
+    $program = Program::findOrFail($programId);
 
-            ProgramContent::create([
-                'program_id' => $programId,
-                'photo' => $photoPath,
-                'description' => $request->descriptions[$index],
-            ]);
+    foreach ($request->photos as $index => $photo) {
+        if ($photo) {
+            $content = new ProgramContent();
+            $content->program_id = $program->id;
+            $content->photo = $photo->store('contents', 'public');
+            $content->description = $request->descriptions[$index];
+            $content->save();
         }
-
-        return redirect("/admin/tambahprogram/{$programId}");
     }
+
+    return redirect()->route('admin.programs.tambahkegiatan')->with('success', 'Program dan konten berhasil diupload!');
+}
+
 
 
 
