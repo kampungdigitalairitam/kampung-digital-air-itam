@@ -14,25 +14,28 @@ class AuthController extends Controller
     }
 
     public function login(Request $request)
-    {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+{
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
 
-        $admin = Admin::where('email', $request->email)->first();
-
-        if ($admin && Hash::check($request->password, $admin->password)) {
-            session(['admin_logged_in' => true]);
-            return redirect()->route('home.home');
-        }
-
-        return back()->withErrors(['error' => 'Invalid email or password.']);
+    // Cocokkan email dengan .env
+    if (
+        $request->email === env('ADMIN_EMAIL') &&
+        Hash::check($request->password, env('ADMIN_PASSWORD'))
+    ) {
+        session(['admin_logged_in' => true]);
+        return redirect()->route('admin.dashboard');
     }
 
-    public function logout()
+    return back()->withErrors(['error' => 'Invalid email or password.']);
+}
+
+public function logout()
     {
         session()->forget('admin_logged_in');
         return redirect()->route('admin.login');
     }
+
 }

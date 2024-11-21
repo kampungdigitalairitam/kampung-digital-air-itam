@@ -1,11 +1,10 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
-  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>Admin - MediaPartner</title>
     <style>
          body {
@@ -60,7 +59,7 @@
                     <div class="py-4">
                       <a
                         href="{{ route('admin.dashboard') }}"
-                        class="t group relative flex justify-center rounded text-gray-500 hover:bg-gray-50 hover:text-gray-700px-2 py-1.5"
+                        class="t group relative flex justify-center rounded  px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -85,16 +84,16 @@
                         <span
                           class="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible"
                         >
-                          General
+                          Kelola Pendaftaran
                         </span>
                       </a>
                     </div>
 
-                    <ul class="space-y-1 border-t border-gray-100 pt-4">
+                    <ul class="space-y-1 border-t border-gray-100 pt-4 ">
                       <li>
                         <a
                           href="{{ route('admin.mediapartner') }}"
-                          class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                          class="group relative flex justify-center rounded px-2 py-1.5   text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +121,7 @@
                       <li>
                         <a
                           href="{{ route('tambahkegiatan') }}"
-                          class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                          class="group relative flex justify-center rounded px-2 py-1.5  text-blue-700 hover:bg-gray-50 bg-blue-50"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -142,43 +141,43 @@
                           <span
                             class="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible"
                           >
-                            Tambah kegiatan
+                            Tambah Kegiatan
                           </span>
                         </a>
                       </li>
 
                       <div class="py-4">
-                          <a
-                            href="{{ route('admin.kelolakegiatan') }}"
-                            class="t group relative flex justify-center rounded bg-blue-50 px-2 py-1.5 text-blue-700"
+                        <a
+                          href="{{ route('admin.kelolakegiatan') }}"
+                          class="t group relative flex justify-center rounded  px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="size-5 opacity-75"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="size-5 opacity-75"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              stroke-width="2"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                              />
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                              />
-                            </svg>
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                            />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                            />
+                          </svg>
 
-                            <span
-                              class="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible"
-                            >
-                              Kelola kegiatan
-                            </span>
-                          </a>
-                        </div>
+                          <span
+                            class="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible"
+                          >
+                            Kelola Kegiatan
+                          </span>
+                        </a>
+                      </div>
 
                       <li>
                         <a
@@ -276,80 +275,44 @@
 
         <!-- Main Content -->
 
-        <div class="flex-1 ml-16 p-4  min-h-screen">
-            <div class="w-full px-6">
-                <!-- Main Content -->
-
-                <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 px-4" style=" margin-left: 120px;">
-                @foreach ($programs as $program)
-                <!-- Article Card -->
-                <article class="flex bg-white transition hover:shadow-xl">
-                    <!-- Date Section -->
-                    <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
-                        <time
-                            datetime="{{ $program->created_at->toDateString() }}"
-                            class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900"
-                        >
-                            <span>{{ $program->created_at->format('Y') }}</span>
-                            <span class="w-px flex-1 bg-gray-900/10"></span>
-                            <span>{{ $program->created_at->format('M d') }}</span>
-                        </time>
-                    </div>
-
-                    <!-- Thumbnail Section -->
-                    <div class="hidden sm:block sm:basis-56">
-                        <img
-                            alt="Program Thumbnail"
-                            src="{{ asset('storage/' . $program->thumbnail) }}"
-                            class="aspect-square h-full w-full object-cover"
-                        />
-                    </div>
-
-                    <!-- Content Section -->
-                    <div class="flex flex-1 flex-col justify-between">
-                        <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-                            <a href="{{ route('home.showkegiatan', $program->id) }}">
-                                <h3 class="font-bold uppercase text-gray-900">
-                                    {{ $program->title }}
-                                </h3>
-                            </a>
-
-                            <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-                                {{ $program->description }}
-                            </p>
-                        </div>
-
-            <!-- Button Section -->
-
-            <!-- Tambahkan SweetAlert2 CSS dan JS -->
-            <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
-            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-            <div class="sm:flex sm:items-end sm:justify-end">
-                <form
-                    id="deleteForm-{{ $program->id }}"
-                    action="{{ route('admin.kelolakegiatan.destroy', $program->id) }}"
-                    method="POST"
-                    class="block"
-                >
-                    @csrf
-                    @method('DELETE')
-                    <button
-                        type="button"
-                        onclick="confirmDelete({{ $program->id }})"
-                        class="bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400"
-                    >
-                        Hapus
-                    </button>
-                </form>
-            </div>
 
 
+        <!-- Form with Tailwind CSS classes -->
+        <form id="newsForm" action="{{ route('admin.simpanberita') }}" method="POST" enctype="multipart/form-data" class="max-w-3xl mx-auto p-20 border rounded-lg shadow-lg bg-white">
+            <h1 class="text-3xl font-semibold mb-6 text-center">Tambah Program</h1>
+    @csrf
+    <div class="mb-6">
+        <label for="judul" class="block text-sm font-medium text-gray-700">Judul</label>
+        <input type="text" name="judul" id="judul" placeholder="Masukkan Judul Berita" required class="mt-2 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
 
-        </div>
-    </article>
-    @endforeach
+    <div class="mb-6">
+        <label for="konten" class="block text-sm font-medium text-gray-700">Konten</label>
+        <textarea name="konten" id="konten" placeholder="Masukkan Konten Berita" required class="mt-2 p-8 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+    </div>
+
+    <div class="mb-6">
+        <label for="foto" class="block text-sm font-medium text-gray-700">Foto</label>
+        <input type="file" name="foto" accept="image/*" class="mt-2 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+
+    <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Upload</button>
+</form>
+
+<!-- Alert box (hidden by default) -->
+<div id="alert" class="hidden fixed top-16 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg text-lg">
+    Data Berita Berhasil Di-upload!
 </div>
+
+        <!-- Alert box (hidden by default) -->
+        <div id="alert" class="hidden fixed top-16 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg text-lg">
+            Data Berita Berhasil Di-upload!
+        </div>
+
+
+
+
+
 
       </div>
 
@@ -368,25 +331,29 @@
       navMenu.classList.toggle('hidden');
     });
   </script>
+  <!-- JavaScript to show alert after form submission -->
   <script>
-    function confirmDelete(id) {
-        Swal.fire({
-            title: 'Apakah Anda yakin?',
-            text: "Program ini akan dihapus secara permanen!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, hapus!',
-            cancelButtonText: 'Batal'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Submit form jika user mengonfirmasi
-                document.getElementById(`deleteForm-${id}`).submit();
-            }
-        });
-    }
-</script>
+    const form = document.getElementById('newsForm');
+    const alertBox = document.getElementById('alert');
 
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();  // Prevent form submission to show alert
+
+        // Show the alert box
+        alertBox.classList.remove('hidden');
+        alertBox.classList.add('block');
+
+        // Hide the alert box after 3 seconds
+        setTimeout(function () {
+            alertBox.classList.remove('block');
+            alertBox.classList.add('hidden');
+        }, 3000);
+
+        // Submit the form after showing the alert
+        setTimeout(function () {
+            form.submit();
+        }, 3000);  // Submit the form after alert is hidden
+    });
+</script>
 </body>
 </html>

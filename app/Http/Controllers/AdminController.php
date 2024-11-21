@@ -8,6 +8,10 @@ use App\Models\ProgramContent;
 
 class AdminController extends Controller
 {
+
+    function dashboard(){
+        return view('admin.dashboard');
+    }
     function tambahkegiatan(){
         return view('admin.tambahkegiatan');
     }
@@ -55,5 +59,12 @@ public function destroy(Program $program)
     $program->delete();
 
     return redirect()->route('admin.kelolakegiatan')->with('success', 'Program dan konten terkait berhasil dihapus!');
+}
+
+
+
+//bagian berita
+function kelolaberita(){
+    return view('admin.kelolaberita');
 }
 }

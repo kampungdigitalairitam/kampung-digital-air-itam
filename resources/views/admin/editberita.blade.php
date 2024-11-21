@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -276,82 +277,55 @@
 
         <!-- Main Content -->
 
-        <div class="flex-1 ml-16 p-4  min-h-screen">
+        <div class="flex-1 ml-16 p-4 min-h-screen bg-gray-100">
             <div class="w-full px-6">
                 <!-- Main Content -->
+                <h1 class="text-2xl font-semibold text-gray-800 mb-6">Edit Berita</h1>
 
-                <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 px-4" style=" margin-left: 120px;">
-                @foreach ($programs as $program)
-                <!-- Article Card -->
-                <article class="flex bg-white transition hover:shadow-xl">
-                    <!-- Date Section -->
-                    <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
-                        <time
-                            datetime="{{ $program->created_at->toDateString() }}"
-                            class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900"
-                        >
-                            <span>{{ $program->created_at->format('Y') }}</span>
-                            <span class="w-px flex-1 bg-gray-900/10"></span>
-                            <span>{{ $program->created_at->format('M d') }}</span>
-                        </time>
-                    </div>
-
-                    <!-- Thumbnail Section -->
-                    <div class="hidden sm:block sm:basis-56">
-                        <img
-                            alt="Program Thumbnail"
-                            src="{{ asset('storage/' . $program->thumbnail) }}"
-                            class="aspect-square h-full w-full object-cover"
-                        />
-                    </div>
-
-                    <!-- Content Section -->
-                    <div class="flex flex-1 flex-col justify-between">
-                        <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-                            <a href="{{ route('home.showkegiatan', $program->id) }}">
-                                <h3 class="font-bold uppercase text-gray-900">
-                                    {{ $program->title }}
-                                </h3>
-                            </a>
-
-                            <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-                                {{ $program->description }}
-                            </p>
-                        </div>
-
-            <!-- Button Section -->
-
-            <!-- Tambahkan SweetAlert2 CSS dan JS -->
-            <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
-            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-            <div class="sm:flex sm:items-end sm:justify-end">
-                <form
-                    id="deleteForm-{{ $program->id }}"
-                    action="{{ route('admin.kelolakegiatan.destroy', $program->id) }}"
-                    method="POST"
-                    class="block"
-                >
+                <form action="{{ route('admin.updateberita', $berita->id) }}" method="POST" enctype="multipart/form-data" class="bg-white shadow rounded-lg p-6">
                     @csrf
-                    @method('DELETE')
-                    <button
-                        type="button"
-                        onclick="confirmDelete({{ $program->id }})"
-                        class="bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400"
-                    >
-                        Hapus
-                    </button>
+                    @method('PUT')
+
+                    <!-- Judul -->
+                    <div class="mb-4">
+                        <label for="judul" class="block text-gray-700 font-medium mb-2">Judul</label>
+                        <input type="text" id="judul" name="judul"
+                               value="{{ $berita->judul }}"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                               required>
+                    </div>
+
+                    <!-- Konten -->
+                    <div class="mb-4">
+                        <label for="konten" class="block text-gray-700 font-medium mb-2">Konten</label>
+                        <textarea id="konten" name="konten" rows="6"
+                                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                                  required>{{ $berita->konten }}</textarea>
+                    </div>
+
+                    <!-- Foto -->
+                    <div class="mb-4">
+                        <label for="foto" class="block text-gray-700 font-medium mb-2">Foto</label>
+                        @if ($berita->foto)
+                            <div class="mb-2">
+                                <img src="{{ asset('storage/' . $berita->foto) }}" alt="Foto" class="w-24 h-24 object-cover rounded-md shadow">
+                            </div>
+                        @endif
+                        <input type="file" id="foto" name="foto"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-right">
+                        <button type="submit"
+                                class="px-6 py-2 bg-blue-500 text-white font-medium rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                            Update Berita
+                        </button>
+                    </div>
                 </form>
             </div>
-
-
-
         </div>
-    </article>
-    @endforeach
-</div>
 
-      </div>
 
     <!--content media partner-->
 
