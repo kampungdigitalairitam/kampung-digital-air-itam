@@ -27,7 +27,7 @@ public function store(Request $request)
     $request->validate([
         'judul' => 'required|string|max:255',
         'konten' => 'required',
-        'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:10240',
     ]);
 
     $path = null;
@@ -60,7 +60,7 @@ public function update(Request $request, $id)
     $request->validate([
         'judul' => 'required|string|max:255',
         'konten' => 'required',
-        'foto' => 'nullable|image|max:2048',  // Hanya memastikan bahwa itu adalah gambar
+        'foto' => 'nullable|image|max:10240',  // Hanya memastikan bahwa itu adalah gambar
     ]);
 
     $path = $berita->foto;

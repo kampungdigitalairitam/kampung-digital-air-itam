@@ -25,13 +25,16 @@
                                 <a class="text-white transition hover:text-gray-300" href="/"> Home </a>
                             </li>
                             <li>
-                                <a class="text-white transition hover:text-gray-300" href="#"> Kegiatan </a>
+                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.kegiatan') }}"> Kegiatan </a>
                             </li>
                             <li>
-                                <a class="text-white transition hover:text-gray-300" href="#"> Program </a>
+                                <a class="text-white transition hover:text-gray-300" href="{{route('home.program')}}"> Program </a>
                             </li>
                             <li>
                                 <a class="text-white transition hover:text-gray-300" href="#"> Tentang Kami </a>
+                            </li>
+                            <li>
+                                <a class="text-white transition hover:text-gray-300" href="/pendaftaranpartner"> Gabung Media Partner</a>
                             </li>
                             <li>
                                 <a class="text-white transition hover:text-gray-300" href="#"> Contact </a>
