@@ -17,6 +17,7 @@ class Program extends Model
         return $this->hasMany(ProgramContent::class);
     }
 
+
     protected static function boot()
 {
     parent::boot();
@@ -25,5 +26,7 @@ class Program extends Model
         $program->contents()->delete();
     });
 }
+
+
 
 }

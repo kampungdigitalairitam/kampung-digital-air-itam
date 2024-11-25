@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProgramContentController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -35,7 +36,8 @@ Route::middleware(AdminMiddleware::class)->group(function () {
     //tambahkegiatan
     Route::get('/admin/tambahkegiatan', [AdminController::class, 'tambahkegiatan'])->name('tambahkegiatan');
     Route::post('/admin/tambahkegiatan', [ProgramController::class, 'store']);
-    Route::post('/admin/tambahkegiatan/{program_id}/contents', [ProgramContentController::class, 'store']);
+    Route::post('/tambahkegiatan/{program_id}/contents', [ProgramContentController::class, 'store']);
+
 
     //kelolakegiatan
     Route::get('/admin/kelolakegiatan', [AdminController::class, 'kelolakegiatan'])->name('admin.kelolakegiatan');
@@ -49,7 +51,7 @@ Route::post('/admin/submit', [PartnerController::class, 'submit'])->name('admin.
 
 //bagian view kegiatan user
 Route::get('/home/kegiatan', [ProgramController::class, 'program'])->name('home.kegiatan');
-Route::get('/home/showkegiatan/{id}', [ProgramController::class, 'show'])->name('home.showkegiatan');
+Route::get('/home/showkegiatan/{program_id}', [ProgramController::class, 'show'])->name('home.showkegiatan');
 
 
 
@@ -64,3 +66,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
 });
 
 Route::get('/home/program', [BeritaController::class, 'showUser'])->name('home.program');
+
+
+//pendaftaran
+Route::get('/home/register', [RegistrationController::class, 'create'])->name('register.form');
+Route::post('/home/register', [RegistrationController::class, 'store'])->name('register.store');
+Route::get('/admin/registrations', [RegistrationController::class, 'index'])->name('admin.registrations');
+Route::delete('/admin/registrations/{id}', [RegistrationController::class, 'destroy'])->name('admin.registrations.delete');

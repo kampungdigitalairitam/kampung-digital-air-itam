@@ -35,10 +35,16 @@ class ProgramController extends Controller
 
 public function show($id)
 {
-    $program = Program::findOrFail($id); // Ambil data program berdasarkan ID
-    $contents = ProgramContent::where('program_id', $id)->get(); // Ambil konten berdasarkan ID program
+    $program = ProgramContent::with('contents')->findOrFail($id);
+    $contents = $program->contents;
+
+
+    // // Debugging
+    // dd($contents);
+
     return view('home.showkegiatan', compact('program', 'contents'));
 }
+
 
 
 

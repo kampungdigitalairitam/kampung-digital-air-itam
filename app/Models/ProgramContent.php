@@ -13,7 +13,8 @@ class ProgramContent extends Model
 
     // Relasi ke Program
     public function program()
-    {
-        return $this->belongsTo(Program::class);
-    }
+{
+    return $this->belongsTo(Program::class);
+}
+
 }

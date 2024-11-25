@@ -73,25 +73,22 @@
         ></span>
 
         <div class="p-8 sm:p-16 lg:p-24">
-          <h2 class="text-2xl font-bold sm:text-3xl">
-            {{ $program->title }}
-          </h2>
+            <h2 class="text-2xl font-bold sm:text-3xl">
+                {{ $program->title }}
+            </h2>
 
+            <div>
+                @foreach ($contents as $content)
+                    <div class="mt-4 border border-gray-300 rounded-lg p-4 text-black">
+                        <img src="{{ asset('storage/' . $content->photo) }}" alt="Foto Kegiatan" class="w-48 h-auto mb-4">
 
-
-
-          <div>
-            @foreach ($contents as $content)
-            <div class="mt-4 border border-gray-300 rounded-lg p-4 text-black">
-            <img src="{{ asset('storage/' . $content->photo) }}" alt="Foto Kegiatan" class="w-48 h-auto mb-4">
-
-            <p>{{ $content->description ?? 'Deskripsi tidak tersedia' }}</p>
+                        <!-- Menampilkan deskripsi foto -->
+                        <p>{{ $content->description ?? 'Deskripsi tidak tersedia' }}</p>
+                    </div>
+                @endforeach
             </div>
-            @endforeach
-          </div>
-
-
         </div>
+
       </div>
     </div>
   </div>

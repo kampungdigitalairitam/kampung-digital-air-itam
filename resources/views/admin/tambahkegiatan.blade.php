@@ -294,30 +294,24 @@
 
         <!-- Main Content -->
 
-        <form action="/admin/tambahkegiatan" method="POST" enctype="multipart/form-data" class="space-y-6 bg-white p-8 rounded shadow-md max-w-3xl mx-auto">
+        <form action="{{ route('tambahkegiatan', ['program_id']) }}" method="POST" enctype="multipart/form-data" class="space-y-6 bg-white p-8 rounded shadow-md max-w-3xl mx-auto">
             @csrf
             <!-- Bagian Program -->
             <h3 class="text-lg font-bold text-gray-700">Data Program</h3>
             <div class="space-y-4">
                 <div>
                     <label for="title" class="block text-sm font-medium text-gray-600">Judul:</label>
-                    <input type="text" name="title" id="title"
-                        class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-indigo-500 focus:outline-none"
-                        required>
+                    <input type="text" name="title" id="title" value="{{ old('title') }}" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-indigo-500 focus:outline-none" required>
                 </div>
 
                 <div>
                     <label for="thumbnail" class="block text-sm font-medium text-gray-600">Thumbnail:</label>
-                    <input type="file" name="thumbnail" id="thumbnail"
-                        class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-indigo-500 focus:outline-none"
-                        accept="image/*" required>
+                    <input type="file" name="thumbnail" id="thumbnail" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-indigo-500 focus:outline-none" accept="image/*" required>
                 </div>
 
                 <div>
                     <label for="description" class="block text-sm font-medium text-gray-600">Deskripsi Program:</label>
-                    <textarea name="description" id="description"
-                        class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-indigo-500 focus:outline-none"
-                        required></textarea>
+                    <textarea name="description" id="description" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-indigo-500 focus:outline-none" required>{{ old('description') }}</textarea>
                 </div>
             </div>
 
@@ -329,26 +323,21 @@
                 <div class="content-row space-y-4">
                     <div>
                         <label for="photos[]" class="block text-sm font-medium text-gray-600">Foto:</label>
-                        <input type="file" name="photos[]" id="photos[]"
-                            class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-indigo-500 focus:outline-none"
-                            accept="image/*" required>
+                        <input type="file" name="photos[]" id="photos[]" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-indigo-500 focus:outline-none" accept="image/*" required>
                     </div>
 
                     <div>
                         <label for="descriptions[]" class="block text-sm font-medium text-gray-600">Deskripsi Foto:</label>
-                        <textarea name="descriptions[]" id="descriptions[]"
-                            class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-indigo-500 focus:outline-none"
-                            required></textarea>
+                        <textarea name="descriptions[]" id="descriptions[]" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-indigo-500 focus:outline-none" required>{{ old('descriptions[]') }}</textarea>
                     </div>
                 </div>
             </div>
 
-
-            <button type="submit"
-                class="inline-flex items-center px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-lg shadow-sm hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300">
+            <button type="submit" class="inline-flex items-center px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-lg shadow-sm hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300">
                 Upload Program dan Konten
             </button>
         </form>
+
 
 
       </div>

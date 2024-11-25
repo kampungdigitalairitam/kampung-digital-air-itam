@@ -50,9 +50,12 @@
     <!--navbar end-->
 
 <div class="flex-grow">
-
+    <div class="text-center mb-16 mt-20">
+        <h2 class="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">KEGIATAN KAMPUNG DIGITAL AIR ITAM</h2>
+    </div>
     <!-- Main Content -->
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 mt-20 px-4">
+
         @foreach ($programs as $program)
         <!-- Article Card -->
         <article class="flex bg-white transition hover:shadow-xl">
