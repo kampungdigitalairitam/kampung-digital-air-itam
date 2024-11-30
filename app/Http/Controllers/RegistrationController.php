@@ -68,4 +68,11 @@ public function destroy($id)
     return redirect()->route('admin.registrations')->with('success', 'Pendaftaran berhasil dihapus.');
 }
 
+public function show($id)
+{
+    $registration = Registration::findOrFail($id);
+    return view('admin.registrations-detail', compact('registration'));
+}
+
+
 }

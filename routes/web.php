@@ -44,6 +44,10 @@ Route::middleware(AdminMiddleware::class)->group(function () {
     Route::get('/admin/kelolakegiatan', [AdminController::class, 'program'])->name('admin.kelolakegiatan');
     Route::delete('/admin/kelolakegiatan/{program}', [AdminController::class, 'destroy'])->name('admin.kelolakegiatan.destroy');
 
+    //kelola pendaftaran
+    Route::get('/admin/registrations', [RegistrationController::class, 'index'])->name('admin.registrations');
+    Route::delete('/admin/registrations/{id}', [RegistrationController::class, 'destroy'])->name('admin.registrations.delete');
+    Route::get('/registrations/{id}', [RegistrationController::class, 'show'])->name('admin.registrations.show');
 });
 
 //bagian submit media partner user
@@ -71,5 +75,3 @@ Route::get('/home/program', [BeritaController::class, 'showUser'])->name('home.p
 //pendaftaran
 Route::get('/home/register', [RegistrationController::class, 'create'])->name('register.form');
 Route::post('/home/register', [RegistrationController::class, 'store'])->name('register.store');
-Route::get('/admin/registrations', [RegistrationController::class, 'index'])->name('admin.registrations');
-Route::delete('/admin/registrations/{id}', [RegistrationController::class, 'destroy'])->name('admin.registrations.delete');

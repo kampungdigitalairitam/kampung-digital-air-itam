@@ -8,7 +8,9 @@
     <style>
          body {
             font-family: Arial, sans-serif;
-
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
             padding: 0;
 
         }
@@ -36,6 +38,11 @@
         .flex-1 {
   padding: 16px; /* Menambahkan jarak di area konten utama */
 }
+main {
+            flex: 1; /* Membuat konten utama mengisi ruang yang tersisa */
+        }
+
+
 
 @media (max-width: 768px) {
   .flex {
@@ -49,25 +56,30 @@
   }
 }
 
+
     </style>
 </head>
-<body class="bg-slate-300">
+<body class="bg-blue-900">
     <!-- sidebar -->
 
 
 
 
-      
+
 
         <!-- Main Content -->
 
-        <div class="flex justify-center items-center min-h-screen">
+        <div class="flex justify-center  min-h-screen">
             <div class="w-full px-6">
 
 
-                <!-- Tabel -->
-                <div class="overflow-x-auto rounded-lg border border-gray-200 text-xs" style="margin-left: 120px;">
+                <div class="overflow-x-auto rounded-lg text-xs">
                     <h1 class="text-2xl font-bold text-gray-900 mt-5 text-center">Media Partner</h1>
+                    <a href="{{ route('admin.dashboard') }}"
+                    class="inline-block mt-4 px-4 py-2 bg-amber-500 text-white font-medium text-sm rounded hover:bg-green-600">
+                     Back
+                 </a>
+
                     <table class="min-w-full table-auto divide-y-2 divide-gray-200 bg-white">
                         <thead class="bg-gray-100">
                             <tr>
@@ -116,14 +128,33 @@
 
   <!-- Main Content End -->
 
-  <script>
-    const navbarToggle = document.querySelector('button');
-    const navMenu = document.querySelector('nav');
+<!-- Footer Section -->
+<footer class="bg-sky-900 text-center py-4 text-gray-400">
+    <p>&copy;KAMPUNG DIGITAL AIR ITAM<br>#PALIDIGITAL #PALICAKAPDIGITAL</p>
+    <div class="flex justify-center space-x-4 mt-4">
+        <a href="" class="hover:text-white">
+            <i data-feather="instagram"></i>
+        </a>
+        <a href="" class="hover:text-white">
+            <i data-feather="youtube"></i>
+        </a>
+        <a href="" class="hover:text-white">
+            <i data-feather="facebook"></i>
+        </a>
+        <a href="" class="hover:text-white">
+            <i data-feather="mail"></i>
+        </a>
+        <a href="" class="hover:text-white">
+            <i data-feather="phone"></i>
+        </a>
+    </div>
+</footer>
 
-    navbarToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('hidden');
-    });
-  </script>
+<!-- Feather Icons Script -->
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<script>
+    feather.replace();
+</script>
 
 </body>
 </html>
