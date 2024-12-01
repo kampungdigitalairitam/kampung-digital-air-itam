@@ -41,7 +41,7 @@ Route::middleware(AdminMiddleware::class)->group(function () {
 
     //kelolakegiatan
     Route::get('/admin/kelolakegiatan', [AdminController::class, 'kelolakegiatan'])->name('admin.kelolakegiatan');
-    Route::get('/admin/kelolakegiatan', [AdminController::class, 'program'])->name('admin.kelolakegiatan');
+   
     Route::delete('/admin/kelolakegiatan/{program}', [AdminController::class, 'destroy'])->name('admin.kelolakegiatan.destroy');
 
     //kelola pendaftaran

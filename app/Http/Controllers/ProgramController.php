@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Program;
-use App\Models\ProgramContent;
+
 use Illuminate\Http\Request;
 
 class ProgramController extends Controller
@@ -35,12 +35,11 @@ class ProgramController extends Controller
 
 public function show($id)
 {
-    $program = ProgramContent::with('contents')->findOrFail($id);
+    // Ambil program dan relasi contents
+    $program = Program::with('contents')->findOrFail($id);
+
+    // Pastikan contents diambil
     $contents = $program->contents;
-
-
-    // // Debugging
-    // dd($contents);
 
     return view('home.showkegiatan', compact('program', 'contents'));
 }

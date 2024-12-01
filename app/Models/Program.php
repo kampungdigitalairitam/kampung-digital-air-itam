@@ -14,9 +14,8 @@ class Program extends Model
     // Relasi ke ProgramContent
     public function contents()
     {
-        return $this->hasMany(ProgramContent::class);
+        return $this->hasMany(ProgramContent::class, 'program_id');
     }
-
 
     protected static function boot()
 {
