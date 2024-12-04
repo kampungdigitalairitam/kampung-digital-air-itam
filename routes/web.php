@@ -5,9 +5,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\PartnerController;
-use App\Http\Controllers\ProgramContentController;
-use App\Http\Controllers\ProgramController;
+
 use App\Http\Controllers\RegistrationController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -33,16 +33,9 @@ Route::middleware(AdminMiddleware::class)->group(function () {
     Route::get('/admin/mediapartner', [PartnerController::class, 'index'])->name('admin.mediapartner');
     Route::post('/admin/delete{id}', [PartnerController::class, 'delete'])->name('admin.delete');
 
-    //tambahkegiatan
-    Route::get('/admin/tambahkegiatan', [AdminController::class, 'tambahkegiatan'])->name('tambahkegiatan');
-    Route::post('/admin/tambahkegiatan', [ProgramController::class, 'store']);
-    Route::post('/tambahkegiatan/{program_id}/contents', [ProgramContentController::class, 'store']);
 
 
-    //kelolakegiatan
-    Route::get('/admin/kelolakegiatan', [AdminController::class, 'kelolakegiatan'])->name('admin.kelolakegiatan');
-   
-    Route::delete('/admin/kelolakegiatan/{program}', [AdminController::class, 'destroy'])->name('admin.kelolakegiatan.destroy');
+
 
     //kelola pendaftaran
     Route::get('/admin/registrations', [RegistrationController::class, 'index'])->name('admin.registrations');
@@ -54,8 +47,7 @@ Route::middleware(AdminMiddleware::class)->group(function () {
 Route::post('/admin/submit', [PartnerController::class, 'submit'])->name('admin.submit');
 
 //bagian view kegiatan user
-Route::get('/home/kegiatan', [ProgramController::class, 'program'])->name('home.kegiatan');
-Route::get('/home/showkegiatan/{program_id}', [ProgramController::class, 'show'])->name('home.showkegiatan');
+
 
 
 
@@ -75,3 +67,16 @@ Route::get('/home/program', [BeritaController::class, 'showUser'])->name('home.p
 //pendaftaran
 Route::get('/home/register', [RegistrationController::class, 'create'])->name('register.form');
 Route::post('/home/register', [RegistrationController::class, 'store'])->name('register.store');
+
+
+Route::get('/tambahkegiatan', [KegiatanController::class, 'tambahKegiatan'])->name('tambahkegiatan');
+
+Route::post('/admin/tambahkegiatan', [KegiatanController::class, 'simpanKegiatan'])->name('admin.tambahkegiatan');
+
+Route::get('/admin/kelolakegiatan', [KegiatanController::class, 'kelolaKegiatan'])->name('admin.kelolakegiatan');
+Route::delete('/admin/kelolakegiatan/{kegiatan}', [KegiatanController::class, 'hapusKegiatan'])->name('admin.kelolakegiatan.delete');;
+Route::get('/admin/kelolakegiatan/{kegiatan}/edit', [KegiatanController::class, 'editKegiatan'])->name('admin.kelolakegiatan.edit');
+Route::put('/admin/kelolakegiatan/{kegiatan}', [KegiatanController::class, 'updateKegiatan'])->name('admin.kelolakegiatan.update');
+
+Route::get('/home/kegiatan', [KegiatanController::class, 'kegiatan'])->name('home.kegiatan');
+Route::get('/home/kegiatan/{kegiatan}', [KegiatanController::class, 'showKegiatan'])->name('home.showkegiatan');

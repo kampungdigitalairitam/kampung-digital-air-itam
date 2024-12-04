@@ -55,57 +55,22 @@
     </div>
     <!-- Main Content -->
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 mt-20 px-4">
-
-        @foreach ($programs as $program)
-        <!-- Article Card -->
-        <article class="flex bg-white transition hover:shadow-xl">
-            <!-- Date Section -->
-            <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
-                <time
-                    datetime="{{ $program->created_at->toDateString() }}"
-                    class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900"
-                >
-                    <span>{{ $program->created_at->format('Y') }}</span>
-                    <span class="w-px flex-1 bg-gray-900/10"></span>
-                    <span>{{ $program->created_at->format('M d') }}</span>
-                </time>
+        <div class="container mt-4">
+            <h2>Daftar Kegiatan</h2>
+            <div class="row">
+                @foreach($kegiatans as $kegiatan)
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="{{ asset('storage/' . $kegiatan->tumbnail_image) }}" class="card-img-top" alt="Thumbnail">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $kegiatan->title }}</h5>
+                                <a href="{{ route('home.showkegiatan', $kegiatan) }}" class="btn btn-primary">Selengkapnya</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-
-            <!-- Thumbnail Section -->
-            <div class="hidden sm:block sm:basis-56">
-                <img
-                    alt="Program Thumbnail"
-                    src="{{ asset('storage/' . $program->thumbnail) }}"
-                    class="aspect-square h-full w-full object-cover"
-                />
-            </div>
-
-            <!-- Content Section -->
-            <div class="flex flex-1 flex-col justify-between">
-                <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-                    <a href="{{ route('home.showkegiatan', $program->id) }}">
-                        <h3 class="font-bold uppercase text-gray-900">
-                            {{ $program->title }}
-                        </h3>
-                    </a>
-
-                    <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-                        {{ $program->description }}
-                    </p>
-                </div>
-
-                <!-- Button Section -->
-                <div class="sm:flex sm:items-end sm:justify-end">
-                    <a
-                        href="{{ route('home.showkegiatan', $program->id) }}"
-                        class="block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400"
-                    >
-                        Lihat Detail
-                    </a>
-                </div>
-            </div>
-        </article>
-        @endforeach
+        </div>
     </div>
 </div>
 

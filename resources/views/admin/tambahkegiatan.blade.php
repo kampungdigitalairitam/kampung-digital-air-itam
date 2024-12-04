@@ -57,64 +57,71 @@
 
 
 
+    <div class="container mt-4">
+        <h2>{{ isset($kegiatan) ? 'Edit Kegiatan' : 'Tambah Kegiatan' }}</h2>
+        <form action="{{ isset($kegiatan) ? route('admin.kelolakegiatan.update', $kegiatan) : route('admin.tambahkegiatan') }}" method="POST" enctype="multipart/form-data">
+
+            @csrf
+            @if(isset($kegiatan))
+                @method('PUT')
+            @endif
+
+            <!-- Form Thumbnail -->
+            <div class="mb-3">
+                <label for="tumbnail_image" class="form-label">Thumbnail</label>
+                <input type="file" class="form-control" id="tumbnail_image" name="tumbnail_image">
+                @if(isset($kegiatan) && $kegiatan->tumbnail_image)
+                    <img src="{{ asset('storage/' . $kegiatan->tumbnail_image) }}" alt="Thumbnail" class="img-thumbnail mt-2" style="max-height: 150px;">
+                @endif
+            </div>
+
+            <div class="mb-3">
+                <label for="title" class="form-label">Judul</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{ $kegiatan->title ?? '' }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Keterangan</label>
+                <textarea class="form-control" id="description" name="description" rows="3" required>{{ $kegiatan->description ?? '' }}</textarea>
+            </div>
+
+            <!-- Form Isi Konten -->
+            <h4>Isi Konten</h4>
+            <div id="content-section">
+                @if(isset($kegiatan) && $kegiatan->content_images)
+                    @foreach($kegiatan->content_images as $index => $image)
+                        <div class="content-item mb-3">
+                            <input type="file" class="form-control mb-2" name="content_images[]" accept="image/*">
+                            <textarea class="form-control mb-2" name="content_descriptions[]" rows="2" placeholder="Deskripsi">{{ $kegiatan->content_descriptions[$index] ?? '' }}</textarea>
+                            <img src="{{ asset('storage/' . $image) }}" class="img-thumbnail" style="max-height: 100px;">
+                        </div>
+                    @endforeach
+                @else
+                    <div class="content-item mb-3">
+                        <input type="file" class="form-control mb-2" name="content_images[]" accept="image/*">
+                        <textarea class="form-control mb-2" name="content_descriptions[]" rows="2" placeholder="Deskripsi"></textarea>
+                    </div>
+                @endif
+            </div>
+            <button type="button" id="add-content" class="btn btn-secondary mb-3">Tambah Konten</button>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-primary">{{ isset($kegiatan) ? 'Update' : 'Simpan' }}</button>
+        </form>
     </div>
 
-
-        <!-- Main Content -->
-
-        <form action="{{ route('tambahkegiatan', ['program_id']) }}" method="POST" enctype="multipart/form-data" class="space-y-6 bg-white p-8 rounded shadow-md max-w-3xl mx-auto">
-            <h1 class="text-xl font-semibold mb-6 text-center">Tambah Kegiatan</h1>
-            @csrf
-            <!-- Bagian Program -->
-            <h3 class="text-lg font-bold text-gray-700">Data Program</h3>
-            <div class="space-y-4">
-                <div>
-                    <label for="title" class="block text-sm font-medium text-gray-600">Judul:</label>
-                    <input type="text" name="title" id="title" value="{{ old('title') }}" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-indigo-500 focus:outline-none" required>
-                </div>
-
-                <div>
-                    <label for="thumbnail" class="block text-sm font-medium text-gray-600">Thumbnail:</label>
-                    <input type="file" name="thumbnail" id="thumbnail" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-indigo-500 focus:outline-none" accept="image/*" required>
-                </div>
-
-                <div>
-                    <label for="description" class="block text-sm font-medium text-gray-600">Deskripsi Program:</label>
-                    <textarea name="description" id="description" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-indigo-500 focus:outline-none" required>{{ old('description') }}</textarea>
-                </div>
-            </div>
-
-            <hr class="border-gray-200">
-
-            <!-- Bagian Konten Program -->
-            <h3 class="text-lg font-bold text-gray-700">Isi Konten Program</h3>
-            <div id="content-rows" class="space-y-4">
-                <div class="content-row space-y-4">
-                    <div>
-                        <label for="photos[]" class="block text-sm font-medium text-gray-600">Foto:</label>
-                        <input type="file" name="photos[]" id="photos[]" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-indigo-500 focus:outline-none" accept="image/*" required>
-                    </div>
-
-                    <div>
-                        <label for="descriptions[]" class="block text-sm font-medium text-gray-600">Deskripsi Foto:</label>
-                        <textarea name="descriptions[]" id="descriptions[]" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-indigo-500 focus:outline-none" required>{{ old('descriptions[]') }}</textarea>
-                    </div>
-                </div>
-            </div>
-
-            <button type="submit" class="inline-flex items-center px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-lg shadow-sm hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300">
-                Upload Program dan Konten
-
-            </button>
-            <a href="{{ route('admin.dashboard') }}"
-    class="inline-block mt-4 px-4 py-2 bg-amber-500 text-white font-medium text-sm rounded hover:bg-green-600">
-     Back
- </a>
-        </form>
-
-
-
-      </div>
+    <script>
+        document.getElementById('add-content').addEventListener('click', function () {
+            const section = document.getElementById('content-section');
+            const item = document.createElement('div');
+            item.classList.add('content-item', 'mb-3');
+            item.innerHTML = `
+                <input type="file" class="form-control mb-2" name="content_images[]" accept="image/*">
+                <textarea class="form-control mb-2" name="content_descriptions[]" rows="2" placeholder="Deskripsi"></textarea>
+            `;
+            section.appendChild(item);
+        });
+    </script>
 
     <!--content media partner-->
 

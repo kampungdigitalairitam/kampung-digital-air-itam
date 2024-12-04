@@ -276,79 +276,46 @@
 
         <!-- Main Content -->
 
-        <div class="flex-1 ml-16 p-4  min-h-screen">
-            <div class="w-full px-6">
-                <!-- Main Content -->
 
-                <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 px-4" style=" margin-left: 120px;">
-                @foreach ($programs as $program)
-                <!-- Article Card -->
-                <article class="flex bg-white transition hover:shadow-xl">
-                    <!-- Date Section -->
-                    <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
-                        <time
-                            datetime="{{ $program->created_at->toDateString() }}"
-                            class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900"
-                        >
-                            <span>{{ $program->created_at->format('Y') }}</span>
-                            <span class="w-px flex-1 bg-gray-900/10"></span>
-                            <span>{{ $program->created_at->format('M d') }}</span>
-                        </time>
-                    </div>
 
-                    <!-- Thumbnail Section -->
-                    <div class="hidden sm:block sm:basis-56">
-                        <img
-                            alt="Program Thumbnail"
-                            src="{{ asset('storage/' . $program->thumbnail) }}"
-                            class="aspect-square h-full w-full object-cover"
-                        />
-                    </div>
+        <div class="container mt-4">
+            <h2>Kelola Kegiatan</h2>
+            <a href="{{ route('admin.tambahkegiatan') }}" class="btn btn-primary mb-3">Tambah Kegiatan</a>
 
-                    <!-- Content Section -->
-                    <div class="flex flex-1 flex-col justify-between">
-                        <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-                            <a href="{{ route('home.showkegiatan', $program->id) }}">
-                                <h3 class="font-bold uppercase text-gray-900">
-                                    {{ $program->title }}
-                                </h3>
-                            </a>
 
-                            <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-                                {{ $program->description }}
-                            </p>
-                        </div>
-
-            <!-- Button Section -->
-
-            <!-- Tambahkan SweetAlert2 CSS dan JS -->
-            <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
-            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-            <div class="sm:flex sm:items-end sm:justify-end">
-                <form
-                    id="deleteForm-{{ $program->id }}"
-                    action="{{ route('admin.kelolakegiatan.destroy', $program->id) }}"
-                    method="POST"
-                    class="block"
-                >
-                    @csrf
-                    @method('DELETE')
-                    <button
-                        type="button"
-                        onclick="confirmDelete({{ $program->id }})"
-                        class="bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400"
-                    >
-                        Hapus
-                    </button>
-                </form>
-            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Thumbnail</th>
+                        <th>Judul</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($kegiatans as $index => $kegiatan)
+                        <tr>
+                            <td>{{ $index + 1 }}</td>
+                            <td><img src="{{ asset('storage/' . $kegiatan->tumbnail_image) }}" style="max-height: 50px;" alt="Thumbnail"></td>
+                            <td>{{ $kegiatan->title }}</td>
+                            <td>
+                                <a href="{{ route('admin.kelolakegiatan.edit', $kegiatan) }}" class="btn btn-warning btn-sm">Edit</a>
+                                <form action="{{ route('admin.kelolakegiatan.delete', $kegiatan) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
 
 
 
         </div>
-    </article>
-    @endforeach
+
 </div>
 
       </div>
