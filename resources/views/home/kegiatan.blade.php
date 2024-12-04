@@ -49,30 +49,40 @@
     </header>
     <!--navbar end-->
 
-<div class="flex-grow">
-    <div class="text-center mb-16 mt-20">
-        <h2 class="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">KEGIATAN KAMPUNG DIGITAL AIR ITAM</h2>
-    </div>
-    <!-- Main Content -->
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 mt-20 px-4">
-        <div class="container mt-4">
-            <h2>Daftar Kegiatan</h2>
-            <div class="row">
-                @foreach($kegiatans as $kegiatan)
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="{{ asset('storage/' . $kegiatan->tumbnail_image) }}" class="card-img-top" alt="Thumbnail">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $kegiatan->title }}</h5>
-                                <a href="{{ route('home.showkegiatan', $kegiatan) }}" class="btn btn-primary">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+    <div class="flex-grow">
+        <div class="text-center mb-16 mt-20">
+            <h2 class="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
+                KEGIATAN KAMPUNG DIGITAL AIR ITAM
+            </h2>
+        </div>
+        <!-- Main Content -->
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mt-10 px-6">
+            @foreach($kegiatans as $kegiatan)
+            <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <img
+                    alt="Thumbnail"
+                    src="{{ asset('storage/' . $kegiatan->tumbnail_image) }}"
+                    class="h-56 w-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+                <div class="p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 hover:text-blue-600 transition-colors duration-300">
+                        {{ $kegiatan->title }}
+                    </h3>
+                    <p class="mt-3 text-sm text-gray-600 line-clamp-3">
+                        {{ Str::limit(strip_tags($kegiatan->description), 100, '...') }}
+                    </p>
+                    <a href="{{ route('home.showkegiatan', $kegiatan) }}" class="mt-4 inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                        Selengkapnya
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 4.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414-1.414L15.586 10H3a1 1 0 110-2h12.586l-3.293-3.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            @endforeach
         </div>
     </div>
-</div>
+
 
  <!-- Footer Section -->
  <footer class="bg-sky-900 text-center py-4 text-gray-400 mt-10">

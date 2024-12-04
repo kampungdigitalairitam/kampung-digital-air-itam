@@ -35,6 +35,16 @@ Route::middleware(AdminMiddleware::class)->group(function () {
 
 
 
+    //bagian kegiatan
+    Route::get('/tambahkegiatan', [KegiatanController::class, 'tambahKegiatan'])->name('tambahkegiatan');
+
+    Route::post('/admin/tambahkegiatan', [KegiatanController::class, 'simpanKegiatan'])->name('admin.tambahkegiatan');
+
+    Route::get('/admin/kelolakegiatan', [KegiatanController::class, 'kelolaKegiatan'])->name('admin.kelolakegiatan');
+    Route::delete('/admin/kelolakegiatan/{kegiatan}', [KegiatanController::class, 'hapusKegiatan'])->name('admin.kelolakegiatan.delete');;
+    Route::get('/admin/kelolakegiatan/{kegiatan}/edit', [KegiatanController::class, 'editKegiatan'])->name('admin.kelolakegiatan.edit');
+    Route::put('/admin/kelolakegiatan/{kegiatan}', [KegiatanController::class, 'updateKegiatan'])->name('admin.kelolakegiatan.update');
+
 
 
     //kelola pendaftaran
@@ -48,17 +58,19 @@ Route::post('/admin/submit', [PartnerController::class, 'submit'])->name('admin.
 
 //bagian view kegiatan user
 
+Route::get('/home/kegiatan', [KegiatanController::class, 'kegiatan'])->name('home.kegiatan');
+Route::get('/home/kegiatan/{kegiatan}', [KegiatanController::class, 'showKegiatan'])->name('home.showkegiatan');
 
 
 
 
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/kelolaberita', [BeritaController::class, 'index'])->name('kelolaberita');
-    Route::get('/tambahberita', [BeritaController::class, 'create'])->name('tambahberita');
-    Route::post('/simpan-berita', [BeritaController::class, 'store'])->name('simpanberita');
-    Route::get('/editberita/{id}', [BeritaController::class, 'edit'])->name('editberita');
-    Route::put('/updateberita/{id}', [BeritaController::class, 'update'])->name('updateberita');
-    Route::delete('/hapusberita/{id}', [BeritaController::class, 'destroy'])->name('hapusberita');
+Route::middleware(AdminMiddleware::class)->group(function () {
+    Route::get('/admin/kelolaberita', [BeritaController::class, 'index'])->name('admin.kelolaberita');
+    Route::get('/admin/tambahberita', [BeritaController::class, 'create'])->name('admin.tambahberita');
+    Route::post('/admin/simpan-berita', [BeritaController::class, 'store'])->name('admin.simpanberita');
+    Route::get('/admin/editberita/{id}', [BeritaController::class, 'edit'])->name('admin.editberita');
+    Route::put('/admin/updateberita/{id}', [BeritaController::class, 'update'])->name('admin.updateberita');
+    Route::delete('/admin/hapusberita/{id}', [BeritaController::class, 'destroy'])->name('admin.hapusberita');
 });
 
 Route::get('/home/program', [BeritaController::class, 'showUser'])->name('home.program');
@@ -68,15 +80,3 @@ Route::get('/home/program', [BeritaController::class, 'showUser'])->name('home.p
 Route::get('/home/register', [RegistrationController::class, 'create'])->name('register.form');
 Route::post('/home/register', [RegistrationController::class, 'store'])->name('register.store');
 
-
-Route::get('/tambahkegiatan', [KegiatanController::class, 'tambahKegiatan'])->name('tambahkegiatan');
-
-Route::post('/admin/tambahkegiatan', [KegiatanController::class, 'simpanKegiatan'])->name('admin.tambahkegiatan');
-
-Route::get('/admin/kelolakegiatan', [KegiatanController::class, 'kelolaKegiatan'])->name('admin.kelolakegiatan');
-Route::delete('/admin/kelolakegiatan/{kegiatan}', [KegiatanController::class, 'hapusKegiatan'])->name('admin.kelolakegiatan.delete');;
-Route::get('/admin/kelolakegiatan/{kegiatan}/edit', [KegiatanController::class, 'editKegiatan'])->name('admin.kelolakegiatan.edit');
-Route::put('/admin/kelolakegiatan/{kegiatan}', [KegiatanController::class, 'updateKegiatan'])->name('admin.kelolakegiatan.update');
-
-Route::get('/home/kegiatan', [KegiatanController::class, 'kegiatan'])->name('home.kegiatan');
-Route::get('/home/kegiatan/{kegiatan}', [KegiatanController::class, 'showKegiatan'])->name('home.showkegiatan');

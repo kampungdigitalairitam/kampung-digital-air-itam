@@ -7,7 +7,7 @@
   @vite('resources/css/app.css')
   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <title>Admin - MediaPartner</title>
+  <title>Admin - EditBerita</title>
     <style>
          body {
             font-family: Arial, sans-serif;

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
-  <title>Media Partner</title>
+  <title>Admin - Dashboard</title>
 </head>
 <body class="bg-gray-900">
 
@@ -61,6 +61,38 @@
           </div>
         </div>
       </div>
+
+      <!-- Logout Button -->
+      <div class="py-4">
+        <form action="{{ route('admin.logout') }}" method="POST">
+          @csrf
+          <button
+            type="submit"
+            class="group relative flex justify-center rounded bg-red-50 px-2 py-1.5 text-red-700"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5 opacity-75"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M14 10l4-4m0 0l4 4m-4-4v12m-4 0H6"
+              />
+            </svg>
+            <span
+              class="invisible absolute left-full top-1/2 ml-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible"
+            >
+              Logout
+            </span>
+          </button>
+        </form>
+      </div>
+
     </div>
 
     <!-- Main Content -->
@@ -138,8 +170,6 @@
               Lihat Detail
             </a>
           </div>
-
-
 
           <!-- Tambah lebih banyak card di sini jika diperlukan -->
         </div>
