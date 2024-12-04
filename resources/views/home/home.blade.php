@@ -13,7 +13,10 @@
         <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <div class="md:flex md:items-center md:gap-12">
-                    <img src="{{ asset('images/logo_komunitas/kdai-fix.png') }}" alt="" class="h-8" viewBox="0 0 28 24" fill="none">
+                    <a href="{{ route('admin.login') }}">
+                        <img src="{{ asset('images/logo_komunitas/kdai-fix.png') }}" alt="" class="h-8" viewBox="0 0 28 24" fill="none">
+                    </a>
+
                 </div>
 
                 <div class="hidden md:block">
@@ -28,14 +31,12 @@
                             <li>
                                 <a class="text-white transition hover:text-gray-300" href="{{ route('home.program') }}"> Program </a>
                             </li>
-                            <li>
-                                <a class="text-white transition hover:text-gray-300" href="#"> Tentang Kami </a>
-                            </li>
+
                             <li>
                                 <a class="text-white transition hover:text-gray-300" href="/pendaftaranpartner"> Gabung Media Partner </a>
                             </li>
                             <li>
-                                <a class="text-white transition hover:text-gray-300" href="#"> Contact </a>
+                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.contact') }}"> Contact </a>
                             </li>
                         </ul>
                     </nav>
@@ -43,9 +44,7 @@
 
                 <div class="flex items-center gap-4">
                     <div class="sm:flex sm:gap-4">
-                        <a class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-teal-500 focus:outline-none focus:ring active:bg-teal-700" href="{{ route('admin.login') }}">
-                            Login
-                        </a>
+
                     </div>
                     <div class="block md:hidden">
                         <button class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
@@ -89,8 +88,7 @@
 
 
             <p class="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus
-                numquam ea!
+                Kampung digital Air Itam adalah Digital Community yang berfokus pada pengembangan hard skill dan soft skill talenta digital Kabupaten PALI.
             </p>
 
             <div class="mt-8 flex flex-wrap justify-center gap-4">
@@ -125,27 +123,28 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
             <!-- Bagian Visi -->
             <div class="bg-blue-950 shadow-md rounded-lg p-6">
-                <h2 class="text-2xl font-semibold text-amber-500 mb-4">Visi</h2>
-                <p class="text-amber-600">
+                <h2 class="text-2xl font-semibold text-white mb-4">Visi</h2>
+                <p class="text-white text-left">
                     Mengembangkan Dan Memberdayakan Seluruh Talenta Digital Kabupaten PALI untuk Mengakselerasi Percepatan Transformasi Digital Menuju "Air Itam Ready For Sillicon PALI".
                 </p>
             </div>
             <!-- Bagian Misi -->
             <div class="bg-blue-950 shadow-md rounded-lg p-6">
-                <h2 class="text-2xl font-semibold text-amber-500 mb-4">Misi</h2>
-                <ul class="list-disc pl-5 text-amber-600">
+                <h2 class="text-2xl font-semibold text-white mb-4">Misi</h2>
+                <ol class="list-decimal pl-5 text-white text-left">
                     <li>Mengembangkan soft skill & hard skill talenta digital kabupaten PALI.</li>
                     <li>Menjadi pusat pembelajaran Teknologi dan Edukasi untuk seluruh kalangan.</li>
                     <li>Bergandengan tangan dengan seluruh komunitas Kabupaten PALI untuk berkembang bersama dibidang Pendidikan, Kebudayaan, Pariwisata dan Ekonomi Kreatif.</li>
                     <li>Menciptakan Ekosistem digital dengan Sumber Daya yang unggul, kreatif, inovatif dan kolaboratif.</li>
-                </ul>
+                </ol>
             </div>
         </div>
     </div>
 </div>
 
 
-<section class="bg-gray-900 py-12">
+
+<section class="bg-white py-12">
     <div class="container mx-auto px-6 lg:px-20">
         <!-- Judul Section -->
         <div class="text-center mb-16">

@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'home'])->name('home.home');
 Route::get('/home/program', [HomeController::class, 'program'])->name('home.program');
+Route::get('/home/contact', [HomeController::class, 'contact'])->name('home.contact');
+
 
 
 

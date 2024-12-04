@@ -22,7 +22,7 @@
         <a class="text-white hover:text-gray-300" href="/">Home</a>
         <a class="text-white hover:text-gray-300" href="{{ route('home.kegiatan') }}">Kegiatan</a>
         <a class="text-white hover:text-gray-300" href="{{ route('home.program') }}">Program</a>
-        <a class="text-white hover:text-gray-300" href="#">Tentang Kami</a>
+        
         <a class="text-white hover:text-gray-300" href="/pendaftaranpartner">Gabung Media Partner</a>
         <a class="text-white hover:text-gray-300" href="#">Contact</a>
       </nav>

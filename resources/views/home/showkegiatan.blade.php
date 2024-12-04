@@ -30,9 +30,7 @@
                         <li>
                             <a class="text-white transition hover:text-gray-300" href="{{ route('home.program') }}"> Program </a>
                         </li>
-                        <li>
-                            <a class="text-white transition hover:text-gray-300" href="#"> Tentang Kami </a>
-                        </li>
+                       
                         <li>
                             <a class="text-white transition hover:text-gray-300" href="/pendaftaranpartner"> Gabung Media Partner </a>
                         </li>

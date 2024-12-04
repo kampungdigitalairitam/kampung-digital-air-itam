@@ -97,8 +97,8 @@
 
     <!-- Main Content -->
     <div class="flex-1 bg-gray-100 p-6">
-      <h1 class="text-2xl font-bold text-gray-800">Media Partner Dashboard</h1>
-      <p class="mt-2 text-gray-600">Selamat datang di halaman Media Partner.</p>
+      <h1 class="text-2xl font-bold text-gray-800">Dashboard</h1>
+      <p class="mt-2 text-gray-600">Selamat datang di halaman Dashboard.</p>
 
       <!-- Section -->
       <div class="mt-8">

@@ -14,6 +14,10 @@ class HomeController extends Controller
         return view('home.program');
     }
 
+    function contact(){
+        return view('home.contact');
+    }
+
 
 
 }
