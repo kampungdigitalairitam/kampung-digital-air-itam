@@ -16,10 +16,10 @@ class KegiatanController extends Controller
     public function simpanKegiatan(Request $request)
     {
         $request->validate([
-            'tumbnail_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'tumbnail_image' => 'required|image|mimes:jpeg,png,jpg|max:10240',
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'content_images.*' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'content_images.*' => 'image|mimes:jpeg,png,jpg|max:10240',
             'content_descriptions.*' => 'nullable|string',
         ]);
 
