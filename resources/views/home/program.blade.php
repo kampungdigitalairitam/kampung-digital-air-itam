@@ -17,24 +17,23 @@
                     <img src="{{ asset('images/logo_komunitas/kdai-fix.png') }}" alt="" class="h-8" viewBox="0 0 28 24" fill="none">
                 </div>
 
-                <div class="hidden md:block">
+                <div class="md:block">
                     <nav aria-label="Global">
-                        <ul class="flex items-center gap-6 text-sm">
+                        <ul class="flex items-center justify-center space-x-3 text-xs sm:text-sm">
                             <li>
-                                <a class="text-white transition hover:text-gray-300" href="/"> Home </a>
+                                <a class="text-white transition hover:text-gray-300" href="/">Home</a>
                             </li>
                             <li>
-                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.kegiatan') }}"> Kegiatan </a>
+                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.kegiatan') }}">Kegiatan</a>
                             </li>
                             <li>
-                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.program') }}"> Program </a>
-                            </li>
-                            
-                            <li>
-                                <a class="text-white transition hover:text-gray-300" href="/pendaftaranpartner"> Gabung Media Partner </a>
+                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.program') }}">Program</a>
                             </li>
                             <li>
-                                <a class="text-white transition hover:text-gray-300" href="#"> Contact </a>
+                                <a class="text-white transition hover:text-gray-300" href="/pendaftaranpartner">Gabung Media Partner</a>
+                            </li>
+                            <li>
+                                <a class="text-white transition hover:text-gray-300" href="#">Contact</a>
                             </li>
                         </ul>
                     </nav>

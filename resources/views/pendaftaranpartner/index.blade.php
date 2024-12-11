@@ -18,38 +18,29 @@
                     <img src="{{ asset('images/logo_komunitas/kdai-fix.png') }}" alt="" class="h-8" viewBox="0 0 28 24" fill="none">
                 </div>
 
-                <div class="hidden md:block">
+                <div class="md:block">
                     <nav aria-label="Global">
-                        <ul class="flex items-center gap-6 text-sm">
+                        <ul class="flex items-center justify-center space-x-3 text-xs sm:text-sm">
                             <li>
-                                <a class="text-white transition hover:text-gray-300" href="/"> Home </a>
+                                <a class="text-white transition hover:text-gray-300" href="/">Home</a>
                             </li>
                             <li>
-                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.kegiatan') }}"> Kegiatan </a>
+                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.kegiatan') }}">Kegiatan</a>
                             </li>
                             <li>
-                                <a class="text-white transition hover:text-gray-300" href="{{route('home.program')}}"> Program </a>
-                            </li>
-                            
-                            <li>
-                                <a class="text-white transition hover:text-gray-300" href="/pendaftaranpartner"> Gabung Media Partner</a>
+                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.program') }}">Program</a>
                             </li>
                             <li>
-                                <a class="text-white transition hover:text-gray-300" href="#"> Contact </a>
+                                <a class="text-white transition hover:text-gray-300" href="/pendaftaranpartner">Gabung Media Partner</a>
+                            </li>
+                            <li>
+                                <a class="text-white transition hover:text-gray-300" href="#">Contact</a>
                             </li>
                         </ul>
                     </nav>
                 </div>
 
-                <div class="flex items-center gap-4">
-                    <div class="block md:hidden">
-                        <button class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+
             </div>
         </div>
     </header>
