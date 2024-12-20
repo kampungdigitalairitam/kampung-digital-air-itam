@@ -12,33 +12,42 @@
 <body class="bg-gray-900">
 
 <!-- Navbar -->
-<header class="bg-transparent absolute w-full z-50">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 items-center justify-between">
-      <div class="flex items-center">
-        <img src="{{ asset('images/logo_komunitas/kdai-fix.png') }}" alt="Logo" class="h-8">
-      </div>
-      <nav class="hidden md:flex space-x-6">
-        <a class="text-white hover:text-gray-300" href="/">Home</a>
-        <a class="text-white hover:text-gray-300" href="{{ route('home.kegiatan') }}">Kegiatan</a>
-        <a class="text-white hover:text-gray-300" href="{{ route('home.program') }}">Program</a>
-        
-        <a class="text-white hover:text-gray-300" href="/pendaftaranpartner">Gabung Media Partner</a>
-        <a class="text-white hover:text-gray-300" href="#">Contact</a>
-      </nav>
-      <div class="block md:hidden">
-        <button class="p-2 rounded bg-gray-100 text-gray-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
+<header class="bg-transparent absolute w-full z-50"> <!-- Tingkatkan z-index -->
+    <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+            <div class="md:flex md:items-center md:gap-12">
+                <img src="{{ asset('images/logo_komunitas/kdai-fix.png') }}" alt="" class="h-8" viewBox="0 0 28 24" fill="none">
+            </div>
+
+            <div class="md:block">
+                <nav aria-label="Global">
+                    <ul class="flex items-center justify-center space-x-3 text-xs sm:text-sm">
+                        <li>
+                            <a class="text-white transition hover:text-gray-300" href="/">Home</a>
+                        </li>
+                        <li>
+                            <a class="text-white transition hover:text-gray-300" href="{{ route('home.kegiatan') }}">Kegiatan</a>
+                        </li>
+                        <li>
+                            <a class="text-white transition hover:text-gray-300" href="{{ route('home.program') }}">Program</a>
+                        </li>
+                        <li>
+                            <a class="text-white transition hover:text-gray-300" href="/pendaftaranpartner">Gabung Media Partner</a>
+                        </li>
+                        <li>
+                            <a class="text-white transition hover:text-gray-300" href="{{ route('home.contact') }}">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+        </div>
     </div>
-  </div>
 </header>
 
 <!-- Main Content -->
-<section class="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white py-32">
+<section class="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white py-20">
   <div class="container mx-auto">
     <div class="max-w-2xl mx-auto text-center">
       <h2 class="text-4xl font-bold mb-6">Gabung Dengan Komunitas Kami!!!</h2>
@@ -177,17 +186,23 @@
 </section>
 
 <!-- Footer -->
-<footer class="bg-gray-900 py-6">
-  <div class="container mx-auto text-center text-gray-400">
-    <p>&copy; 2024 Kampung Digital Air Itam PALI<br>#PALIDIGITAL #PALICAKAPDIGITAL</p>
+<footer class="bg-sky-900 text-center py-4 text-gray-400">
+    <p>&copy;KAMPUNG DIGITAL AIR ITAM<br>#PALIDIGITAL #PALICAKAPDIGITAL</p>
     <div class="flex justify-center space-x-4 mt-4">
-      <a href="#" class="hover:text-white"><i data-feather="instagram"></i></a>
-      <a href="#" class="hover:text-white"><i data-feather="youtube"></i></a>
-      <a href="#" class="hover:text-white"><i data-feather="facebook"></i></a>
-      <a href="#" class="hover:text-white"><i data-feather="mail"></i></a>
-      <a href="#" class="hover:text-white"><i data-feather="phone"></i></a>
+        <a href="https://www.instagram.com/kampungdigitalairitam?igsh=MTdhY3ZlMHJjNHZsYw==" class="hover:text-white">
+            <i data-feather="instagram"></i>
+        </a>
+        <a href="https://youtube.com/@kampungdigitalairitam?si=wLeWlOOCPbk_KArU" class="hover:text-white">
+            <i data-feather="youtube"></i>
+        </a>
+        <a href="https://facebook.com/groups/538723418458003/" class="hover:text-white">
+            <i data-feather="facebook"></i>
+        </a>
+
+        <a href="https://wa.me/+62 821-8445-8290" class="hover:text-white">
+            <i data-feather="phone"></i>
+        </a>
     </div>
-  </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>

@@ -5,79 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
   <title>Beranda</title>
-  <Style>
-    /* Sidebar default (tersembunyi) */
-#sidebar {
-    transition: transform 0.3s ease-in-out;
-   
-}
 
-/* Overlay default (tersembunyi) */
-#overlay.hidden {
-    display: none;
-}
-
-  </Style>
 </head>
 <body class="bg-gray-900">
 
-    <header class="bg-transparent absolute w-full z-50">
+    <header class="bg-transparent absolute w-full z-50"> <!-- Tingkatkan z-index -->
         <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
-                <!-- Hamburger Button -->
-                <div class="block md:hidden">
-                    <button id="openSidebar" class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-
-                <!-- Logo -->
                 <div class="md:flex md:items-center md:gap-12">
                     <a href="{{ route('admin.login') }}">
+
                         <img src="{{ asset('images/logo_komunitas/kdai-fix.png') }}" alt="" class="h-8" viewBox="0 0 28 24" fill="none">
                     </a>
                 </div>
 
-                <!-- Navbar Links (Visible on larger screens) -->
-                <div class="hidden md:block">
+                <div class="md:block">
                     <nav aria-label="Global">
-                        <ul class="flex items-center gap-6 text-sm">
-                            <li><a class="text-white transition hover:text-gray-300" href="/">Home</a></li>
-                            <li><a class="text-white transition hover:text-gray-300" href="{{ route('home.kegiatan') }}">Kegiatan</a></li>
-                            <li><a class="text-white transition hover:text-gray-300" href="{{ route('home.program') }}">Program</a></li>
-                            <li><a class="text-white transition hover:text-gray-300" href="/pendaftaranpartner">Gabung Media Partner</a></li>
-                            <li><a class="text-white transition hover:text-gray-300" href="{{ route('home.contact') }}">Contact</a></li>
+                        <ul class="flex items-center justify-center space-x-3 text-xs sm:text-sm">
+                            <li>
+                                <a class="text-white transition hover:text-gray-300" href="/">Home</a>
+                            </li>
+                            <li>
+                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.kegiatan') }}">Kegiatan</a>
+                            </li>
+                            <li>
+                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.program') }}">Program</a>
+                            </li>
+                            <li>
+                                <a class="text-white transition hover:text-gray-300" href="/pendaftaranpartner">Gabung Media Partner</a>
+                            </li>
+                            <li>
+                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.contact') }}">Contact</a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
+
+
             </div>
         </div>
     </header>
-<!-- Sidebar -->
-<div id="sidebar" class="fixed left-0 top-0 z-40 h-full w-64 bg-gray-800 text-white transform -translate-x-full transition-transform">
-    <div class="flex justify-between items-center px-4 py-4 bg-gray-900">
-        <h2 class="text-lg font-bold">Menu</h2>
-        <!-- Tombol X -->
-        <button id="closeSidebar" class="text-gray-400 hover:text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-    </div>
-    <nav class="mt-4">
-        <ul class="space-y-2">
-            <li><a href="/" class="block px-4 py-2 hover:bg-gray-700">Home</a></li>
-            <li><a href="#" class="block px-4 py-2 hover:bg-gray-700">Kegiatan</a></li>
-            <li><a href="#" class="block px-4 py-2 hover:bg-gray-700">Program</a></li>
-        </ul>
-    </nav>
-</div>
-
-<!-- Overlay -->
-<div id="overlay" class="fixed inset-0 z-30 bg-black bg-opacity-50 hidden"></div>
-
 
 
 
@@ -221,54 +188,23 @@
  <footer class="bg-sky-900 text-center py-4 text-gray-400">
     <p>&copy;KAMPUNG DIGITAL AIR ITAM<br>#PALIDIGITAL #PALICAKAPDIGITAL</p>
     <div class="flex justify-center space-x-4 mt-4">
-        <a href="" class="hover:text-white">
+        <a href="https://www.instagram.com/kampungdigitalairitam?igsh=MTdhY3ZlMHJjNHZsYw==" class="hover:text-white">
             <i data-feather="instagram"></i>
         </a>
-        <a href="" class="hover:text-white">
+        <a href="https://youtube.com/@kampungdigitalairitam?si=wLeWlOOCPbk_KArU" class="hover:text-white">
             <i data-feather="youtube"></i>
         </a>
-        <a href="" class="hover:text-white">
+        <a href="https://facebook.com/groups/538723418458003/" class="hover:text-white">
             <i data-feather="facebook"></i>
         </a>
-        <a href="" class="hover:text-white">
-            <i data-feather="mail"></i>
-        </a>
-        <a href="" class="hover:text-white">
+
+        <a href="https://wa.me/+62 821-8445-8290" class="hover:text-white">
             <i data-feather="phone"></i>
         </a>
     </div>
 </footer>
 
 
-
-    <!-- JavaScript -->
-    <script>
-// Ambil elemen
-const openSidebarButton = document.getElementById('openSidebar');
-const closeSidebarButton = document.getElementById('closeSidebar');
-const sidebar = document.getElementById('sidebar');
-const overlay = document.getElementById('overlay');
-
-// Fungsi untuk membuka sidebar
-function openSidebar() {
-    sidebar.classList.remove('-translate-x-full'); // Tampilkan sidebar
-    overlay.classList.remove('hidden'); // Tampilkan overlay
-    openSidebarButton.style.display = 'none'; // Sembunyikan tombol hamburger
-}
-
-// Fungsi untuk menutup sidebar
-function closeSidebar() {
-    sidebar.classList.add('-translate-x-full'); // Sembunyikan sidebar
-    overlay.classList.add('hidden'); // Sembunyikan overlay
-    openSidebarButton.style.display = 'block'; // Tampilkan tombol hamburger
-}
-
-// Tambahkan event listener ke tombol hamburger, tombol X, dan overlay
-openSidebarButton.addEventListener('click', openSidebar);
-closeSidebarButton.addEventListener('click', closeSidebar);
-overlay.addEventListener('click', closeSidebar);
-
-    </script>
 
 <!-- Feather Icons Script -->
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>

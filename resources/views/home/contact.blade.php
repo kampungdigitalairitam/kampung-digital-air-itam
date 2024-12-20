@@ -13,55 +13,39 @@
         <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <div class="md:flex md:items-center md:gap-12">
-                    <a href="{{ route('admin.login') }}">
-                        <img src="{{ asset('images/logo_komunitas/kdai-fix.png') }}" alt="" class="h-8" viewBox="0 0 28 24" fill="none">
-                    </a>
-
+                    <img src="{{ asset('images/logo_komunitas/kdai-fix.png') }}" alt="" class="h-8" viewBox="0 0 28 24" fill="none">
                 </div>
 
-                <div class="hidden md:block">
+                <div class="md:block">
                     <nav aria-label="Global">
-                        <ul class="flex items-center gap-6 text-sm">
+                        <ul class="flex items-center justify-center space-x-3 text-xs sm:text-sm">
                             <li>
-                                <a class="text-white transition hover:text-gray-300" href="/"> Home </a>
+                                <a class="text-white transition hover:text-gray-300" href="/">Home</a>
                             </li>
                             <li>
-                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.kegiatan') }}"> Kegiatan </a>
+                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.kegiatan') }}">Kegiatan</a>
                             </li>
                             <li>
-                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.program') }}"> Program </a>
-                            </li>
-
-                            <li>
-                                <a class="text-white transition hover:text-gray-300" href="/pendaftaranpartner"> Gabung Media Partner </a>
+                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.program') }}">Program</a>
                             </li>
                             <li>
-                                <a class="text-white transition hover:text-gray-300" href="#"> Contact </a>
+                                <a class="text-white transition hover:text-gray-300" href="/pendaftaranpartner">Gabung Media Partner</a>
+                            </li>
+                            <li>
+                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.contact') }}">Contact</a>
                             </li>
                         </ul>
                     </nav>
                 </div>
 
-                <div class="flex items-center gap-4">
-                    <div class="sm:flex sm:gap-4">
 
-                    </div>
-                    <div class="block md:hidden">
-                        <button class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
             </div>
         </div>
     </header>
+    <!--navbar end-->
 
-      <!--navbar end-->
-
-      <!--Main Content-->
-      <div class="flex flex-col items-center justify-center min-h-screen bg-gray-900 p-6">
+    <!--Main Content-->
+    <div class="flex flex-col items-center justify-center min-h-screen bg-gray-900 p-6 "> <!-- Added margin-top to bring the content closer to navbar -->
         <h1 class="text-3xl font-extrabold text-white mb-6">Contact Us</h1>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
             <!-- WhatsApp -->
@@ -86,7 +70,7 @@
                 <p class="text-white mt-2">Facebook</p>
             </a>
             <!-- Email -->
-            <a href="mailto:your-email@example.com" target="_blank" class="flex flex-col items-center">
+            <a href="mailto:kampungdigitalairitam@gmail.com" target="_blank" class="flex flex-col items-center">
                 <div class="bg-gray-700 p-4 rounded-full shadow-lg">
                     <img src="https://img.icons8.com/ios-filled/50/FFFFFF/email.png" alt="Email">
                 </div>
@@ -102,39 +86,31 @@
         </div>
     </div>
 
+    <!-- Footer Section -->
+    <footer class="bg-sky-900 text-center py-4 text-gray-400">
+        <p>&copy;KAMPUNG DIGITAL AIR ITAM<br>#PALIDIGITAL #PALICAKAPDIGITAL</p>
+        <div class="flex justify-center space-x-4 mt-4">
+            <a href="https://www.instagram.com/kampungdigitalairitam?igsh=MTdhY3ZlMHJjNHZsYw==" class="hover:text-white">
+                <i data-feather="instagram"></i>
+            </a>
+            <a href="https://youtube.com/@kampungdigitalairitam?si=wLeWlOOCPbk_KArU" class="hover:text-white">
+                <i data-feather="youtube"></i>
+            </a>
+            <a href="https://facebook.com/groups/538723418458003/" class="hover:text-white">
+                <i data-feather="facebook"></i>
+            </a>
 
+            <a href="https://wa.me/+62 821-8445-8290" class="hover:text-white">
+                <i data-feather="phone"></i>
+            </a>
+        </div>
+    </footer>
 
- <!-- Footer Section -->
- <footer class="bg-sky-900 text-center py-4 text-gray-400">
-    <p>&copy;KAMPUNG DIGITAL AIR ITAM<br>#PALIDIGITAL #PALICAKAPDIGITAL</p>
-    <div class="flex justify-center space-x-4 mt-4">
-        <a href="" class="hover:text-white">
-            <i data-feather="instagram"></i>
-        </a>
-        <a href="" class="hover:text-white">
-            <i data-feather="youtube"></i>
-        </a>
-        <a href="" class="hover:text-white">
-            <i data-feather="facebook"></i>
-        </a>
-        <a href="" class="hover:text-white">
-            <i data-feather="mail"></i>
-        </a>
-        <a href="" class="hover:text-white">
-            <i data-feather="phone"></i>
-        </a>
-    </div>
-</footer>
+    <!-- Feather Icons Script -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        feather.replace();
+    </script>
 
-<!-- Feather Icons Script -->
-<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-<script>
-    feather.replace();
-</script>
-
-
-
-
-      <!--Main Content end-->
 </body>
 </html>

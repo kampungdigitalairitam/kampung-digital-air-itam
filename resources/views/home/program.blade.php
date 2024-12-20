@@ -33,7 +33,7 @@
                                 <a class="text-white transition hover:text-gray-300" href="/pendaftaranpartner">Gabung Media Partner</a>
                             </li>
                             <li>
-                                <a class="text-white transition hover:text-gray-300" href="#">Contact</a>
+                                <a class="text-white transition hover:text-gray-300" href="{{ route('home.contact') }}">Contact</a>
                             </li>
                         </ul>
                     </nav>
@@ -76,22 +76,20 @@
 
 
  <!-- Footer Section -->
- <footer class="bg-sky-900 text-center py-4 text-gray-400 mt-10">
+ <footer class="bg-sky-900 text-center py-4 text-gray-400">
     <p>&copy;KAMPUNG DIGITAL AIR ITAM<br>#PALIDIGITAL #PALICAKAPDIGITAL</p>
     <div class="flex justify-center space-x-4 mt-4">
-        <a href="" class="hover:text-white">
+        <a href="https://www.instagram.com/kampungdigitalairitam?igsh=MTdhY3ZlMHJjNHZsYw==" class="hover:text-white">
             <i data-feather="instagram"></i>
         </a>
-        <a href="" class="hover:text-white">
+        <a href="https://youtube.com/@kampungdigitalairitam?si=wLeWlOOCPbk_KArU" class="hover:text-white">
             <i data-feather="youtube"></i>
         </a>
-        <a href="" class="hover:text-white">
+        <a href="https://facebook.com/groups/538723418458003/" class="hover:text-white">
             <i data-feather="facebook"></i>
         </a>
-        <a href="" class="hover:text-white">
-            <i data-feather="mail"></i>
-        </a>
-        <a href="" class="hover:text-white">
+
+        <a href="https://wa.me/+62 821-8445-8290" class="hover:text-white">
             <i data-feather="phone"></i>
         </a>
     </div>

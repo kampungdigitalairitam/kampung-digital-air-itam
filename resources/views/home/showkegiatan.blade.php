@@ -11,39 +11,36 @@
 <body class="bg-gray-900 flex flex-col min-h-screen">
 
   <!--navbar-->
-  <header class="bg-transparent absolute w-full z-50">
+  <header class="bg-transparent absolute w-full z-50"> <!-- Tingkatkan z-index -->
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
             <div class="md:flex md:items-center md:gap-12">
                 <img src="{{ asset('images/logo_komunitas/kdai-fix.png') }}" alt="" class="h-8" viewBox="0 0 28 24" fill="none">
             </div>
 
-            <div class="hidden md:block">
+            <div class="md:block">
                 <nav aria-label="Global">
-                    <ul class="flex items-center gap-6 text-sm">
+                    <ul class="flex items-center justify-center space-x-3 text-xs sm:text-sm">
                         <li>
-                            <a class="text-white transition hover:text-gray-300" href="/"> Home </a>
+                            <a class="text-white transition hover:text-gray-300" href="/">Home</a>
                         </li>
                         <li>
-                            <a class="text-white transition hover:text-gray-300" href="{{ route('home.kegiatan') }}"> Kegiatan </a>
+                            <a class="text-white transition hover:text-gray-300" href="{{ route('home.kegiatan') }}">Kegiatan</a>
                         </li>
                         <li>
-                            <a class="text-white transition hover:text-gray-300" href="{{ route('home.program') }}"> Program </a>
-                        </li>
-                       
-                        <li>
-                            <a class="text-white transition hover:text-gray-300" href="/pendaftaranpartner"> Gabung Media Partner </a>
+                            <a class="text-white transition hover:text-gray-300" href="{{ route('home.program') }}">Program</a>
                         </li>
                         <li>
-                            <a class="text-white transition hover:text-gray-300" href="#"> Contact </a>
+                            <a class="text-white transition hover:text-gray-300" href="/pendaftaranpartner">Gabung Media Partner</a>
+                        </li>
+                        <li>
+                            <a class="text-white transition hover:text-gray-300" href="{{ route('home.contact') }}">Contact</a>
                         </li>
                     </ul>
                 </nav>
             </div>
 
-            <div class="flex items-center gap-4">
 
-            </div>
         </div>
     </div>
 </header>
@@ -89,18 +86,28 @@
   </section>
   <!-- Kegiatan Section End -->
 
-  <!-- Footer Section -->
-  <footer class="bg-sky-900 text-center py-4 text-gray-400 mt-10">
+ <!-- Footer Section -->
+ <footer class="bg-sky-900 text-center py-4 text-gray-400">
     <p>&copy;KAMPUNG DIGITAL AIR ITAM<br>#PALIDIGITAL #PALICAKAPDIGITAL</p>
     <div class="flex justify-center space-x-4 mt-4">
-      <a href="" class="hover:text-white"><i data-feather="instagram"></i></a>
-      <a href="" class="hover:text-white"><i data-feather="youtube"></i></a>
-      <a href="" class="hover:text-white"><i data-feather="facebook"></i></a>
-      <a href="" class="hover:text-white"><i data-feather="mail"></i></a>
-      <a href="" class="hover:text-white"><i data-feather="phone"></i></a>
+        <a href="https://www.instagram.com/kampungdigitalairitam?igsh=MTdhY3ZlMHJjNHZsYw==" class="hover:text-white">
+            <i data-feather="instagram"></i>
+        </a>
+        <a href="https://youtube.com/@kampungdigitalairitam?si=wLeWlOOCPbk_KArU" class="hover:text-white">
+            <i data-feather="youtube"></i>
+        </a>
+        <a href="https://facebook.com/groups/538723418458003/" class="hover:text-white">
+            <i data-feather="facebook"></i>
+        </a>
+
+        <a href="https://wa.me/+62 821-8445-8290" class="hover:text-white">
+            <i data-feather="phone"></i>
+        </a>
     </div>
-  </footer>
+</footer>
   <!-- Footer Section End -->
+
+
 
   <!-- Feather Icons Script -->
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>

@@ -30,33 +30,42 @@
 <body class="bg-gray-900">
 
   <!-- Navbar -->
-  <header class="bg-transparent absolute w-full z-50">
+  <header class="bg-transparent absolute w-full z-50"> <!-- Tingkatkan z-index -->
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
-        <div class="md:flex md:items-center md:gap-12">
-          <img src="{{ asset('images/logo_komunitas/kdai-fix.png') }}" alt="" class="h-8">
+        <div class="flex h-16 items-center justify-between">
+            <div class="md:flex md:items-center md:gap-12">
+                <a href="{{ route('admin.login') }}">
+
+                    <img src="{{ asset('images/logo_komunitas/kdai-fix.png') }}" alt="" class="h-8" viewBox="0 0 28 24" fill="none">
+                </a>
+            </div>
+
+            <div class="md:block">
+                <nav aria-label="Global">
+                    <ul class="flex items-center justify-center space-x-3 text-xs sm:text-sm">
+                        <li>
+                            <a class="text-white transition hover:text-gray-300" href="/">Home</a>
+                        </li>
+                        <li>
+                            <a class="text-white transition hover:text-gray-300" href="{{ route('home.kegiatan') }}">Kegiatan</a>
+                        </li>
+                        <li>
+                            <a class="text-white transition hover:text-gray-300" href="{{ route('home.program') }}">Program</a>
+                        </li>
+                        <li>
+                            <a class="text-white transition hover:text-gray-300" href="/pendaftaranpartner">Gabung Media Partner</a>
+                        </li>
+                        <li>
+                            <a class="text-white transition hover:text-gray-300" href="{{ route('home.contact') }}">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
         </div>
-        <div class="hidden md:block">
-          <nav aria-label="Global">
-            <ul class="flex items-center gap-6 text-sm">
-              <li><a class="text-white transition hover:text-gray-300" href="/">Home</a></li>
-              <li><a class="text-white transition hover:text-gray-300" href="#">Kegiatan</a></li>
-              <li><a class="text-white transition hover:text-gray-300" href="#">Program</a></li>
-              <li><a class="text-white transition hover:text-gray-300" href="#">Tentang Kami</a></li>
-              <li><a class="text-white transition hover:text-gray-300" href="#">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="block md:hidden">
-          <button class="rounded bg-gray-100 p-2 text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
     </div>
-  </header>
+</header>
   <!-- Navbar End -->
 
   <!-- Main Content -->

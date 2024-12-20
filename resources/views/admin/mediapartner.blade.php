@@ -129,26 +129,7 @@ main {
   <!-- Main Content End -->
 
 <!-- Footer Section -->
-<footer class="bg-sky-900 text-center py-4 text-gray-400">
-    <p>&copy;KAMPUNG DIGITAL AIR ITAM<br>#PALIDIGITAL #PALICAKAPDIGITAL</p>
-    <div class="flex justify-center space-x-4 mt-4">
-        <a href="" class="hover:text-white">
-            <i data-feather="instagram"></i>
-        </a>
-        <a href="" class="hover:text-white">
-            <i data-feather="youtube"></i>
-        </a>
-        <a href="" class="hover:text-white">
-            <i data-feather="facebook"></i>
-        </a>
-        <a href="" class="hover:text-white">
-            <i data-feather="mail"></i>
-        </a>
-        <a href="" class="hover:text-white">
-            <i data-feather="phone"></i>
-        </a>
-    </div>
-</footer>
+
 
 <!-- Feather Icons Script -->
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
