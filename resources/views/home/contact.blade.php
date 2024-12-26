@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
-  <title>Beranda</title>
+  <title>Contact</title>
+  <link rel="icon" href="{{ asset('images/logo_komunitas/kdai-fix.png') }}" type="image/x-icon">
 </head>
 <body class="bg-gray-900">
 

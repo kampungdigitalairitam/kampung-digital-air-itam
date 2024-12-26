@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
   <title>Beranda</title>
-
+  <link rel="icon" href="{{ asset('images/logo_komunitas/kdai-fix.png') }}" type="image/x-icon">
 </head>
 <body class="bg-gray-900">
 
@@ -176,9 +176,7 @@
             <div class="flex justify-center">
                 <img src="{{ asset('images/logo_komunitas/logo_pali_update.jpg') }}" alt="Logo Komunitas 10" class="h-20 w-auto object-contain">
             </div>
-            <div class="flex justify-center">
-                <img src="{{ asset('images/kdai-fix.png') }}" alt="Logo Komunitas 11" class="h-20 w-auto object-contain">
-            </div>
+
         </div>
     </div>
 </section>

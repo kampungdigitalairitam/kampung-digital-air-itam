@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
-  <title>Media Partner</title>
+  <title>Register</title>
+  <link rel="icon" href="{{ asset('images/logo_komunitas/kdai-fix.png') }}" type="image/x-icon">
 </head>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
